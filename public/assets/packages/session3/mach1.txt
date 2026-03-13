@@ -1,0 +1,174 @@
+
+import React from "react";
+
+const BAR_IMAGE = "/assets/packages/session3/bar.png";
+
+export default function Dash() {
+  return (
+    <div className="relative h-[100vh] bg-[#020617] w-full pb-40 pt-[500px] hidden sm:block overflow-hidden">
+      {/* Bars (behind everything) */}
+      <div
+        className="absolute z-0 max-w-[90rem] mx-auto flex items-end justify-between 2xl:h-[60vh] xl:h-[66vh]"
+        style={{
+          left: "6%",
+          right: "6%",
+          bottom: "26%",
+          top: "2%",
+        }}
+      >
+        {/* Bar 1 */}
+        <div className="flex flex-col items-center flex-1 min-w-0 max-w-[220px] relative">
+          <div
+            className="absolute text-left w-full"
+            style={{ top: "60px", left: "40px" }}
+          >
+            <p className="text-white font-bold xl:text-[40px]">35-40%</p>
+            <p className="text-white/80 text-sm mt-1 font-medium">
+              Less consultant dependency
+            </p>
+          </div>
+
+          <div className="relative w-full h-[520px] flex justify-center">
+            <div
+              className="absolute bottom-0 w-full max-w-[90%] bg-no-repeat bg-contain"
+              style={{
+                height: "90%",
+                backgroundImage: `url(${BAR_IMAGE})`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Bar 2 */}
+        <div className="flex flex-col items-center flex-1 min-w-0 max-w-[220px] relative">
+          <div
+            className="absolute text-left w-full"
+            style={{ top: "-20px", left: "40px" }}
+          >
+            <p className="text-white font-bold xl:text-[40px]">40%</p>
+            <p className="text-white/80 text-sm mt-1 font-medium">
+              Recover savings in 5 yrs
+            </p>
+          </div>
+
+          <div className="relative w-full h-[520px] flex justify-center">
+            <div
+              className="absolute bottom-0 w-full max-w-[90%] bg-no-repeat bg-contain"
+              style={{
+                height: "105%",
+                backgroundImage: `url(${BAR_IMAGE})`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Bar 3 */}
+        <div className="flex flex-col items-center flex-1 min-w-0 max-w-[220px] relative">
+          <div
+            className="absolute text-left w-full"
+            style={{ top: "30px", left: "40px" }}
+          >
+            <p className="text-white font-bold xl:text-[40px]">50%</p>
+            <p className="text-white/80 text-sm mt-1 font-medium">
+              Cut onboarding cycles
+            </p>
+          </div>
+
+          <div className="relative w-full h-[520px] flex justify-center">
+            <div
+              className="absolute bottom-0 w-full max-w-[90%] bg-no-repeat bg-contain"
+              style={{
+                height: "96%",
+                backgroundImage: `url(${BAR_IMAGE})`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Bar 4 */}
+        <div className="flex flex-col items-center flex-1 min-w-0 max-w-[220px] relative">
+          <div
+            className="absolute text-left w-full"
+            style={{ top: "-90px", left: "40px" }}
+          >
+            <p className="text-white font-bold xl:text-[40px]">4x-10x</p>
+            <p className="text-white/80 text-sm mt-1 font-medium">ROI</p>
+          </div>
+
+          <div className="relative w-full h-[520px] flex justify-center">
+            <div
+              className="absolute bottom-0 w-full max-w-[90%] bg-no-repeat bg-contain"
+              style={{
+                height: "120%",
+                backgroundImage: `url(${BAR_IMAGE})`,
+                backgroundSize: "100% 100%",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Gradient (behind globe) */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 289"
+        className="absolute bottom-0 left-0 w-full z-[15]"
+        fill="none"
+      >
+        <rect x="-26" width="1493" height="389" fill="url(#paint0_linear)" />
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="731.5"
+            y1="0"
+            x2="731.5"
+            y2="289"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#00165B" stopOpacity="0" />
+            <stop offset="0.644231" stopColor="#00165B" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Globe */}
+      <img
+        src="/assets/packages/session3/onlyGlobe.svg"
+        alt="Earth"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[120rem] object-contain z-10"
+      />
+
+      {/* Text in front of globe */}
+      {/* <div className="hidden sm:flex absolute inset-0 z-[30] items-end justify-center pointer-events-none">
+        <div
+          data-aos="fade-up"
+          className="relative bottom-2 lg:bottom-40 flex flex-col items-center justify-center p-8 font-sans rounded-3xl pointer-events-auto"
+        >
+          <p className="text-center text-[34px] xl:text-[64px] text-white font-semibold tracking-wide">
+            Upgrading to <br />
+            <span className="font-bold bg-gradient-to-r from-[#B5D6FF] via-[#0071FF] to-[#90C63D] bg-clip-text text-transparent tracking-tighter">
+              MACH1
+            </span>
+          </p>
+        </div>
+      </div> */}
+
+      <div className="hidden sm:flex absolute inset-0 z-[30] items-end justify-center pointer-events-none">
+        <div
+          data-aos="fade-up"
+          className="relative bottom-16 md:bottom-20 lg:bottom-32 xl:bottom-40 2xl:bottom-56 flex flex-col items-center justify-center p-6 font-sans rounded-3xl pointer-events-auto"
+        >
+          <p className="text-center text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white font-semibold tracking-wide leading-tight">
+            Upgrading to <br />
+            <span className="font-bold bg-gradient-to-r from-[#B5D6FF] via-[#0071FF] to-[#90C63D] bg-clip-text text-transparent tracking-tight">
+              MACH1
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
