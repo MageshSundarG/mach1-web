@@ -183,7 +183,7 @@ const AirportOpsLanding = () => {
               <h3 className="md:text-[36px] text-[28px] font-regular group-hover:text-blue-400 transition-colors tracking-tight">
                 AI Transcribe & Summarize
               </h3>
-              <span className="md:text-[30px] text-[20px] font-light leading-[0.5]">(under development)</span>
+              {/* <span className="md:text-[30px] text-[20px] font-light leading-[0.5]">(under development)</span> */}
 
               <p className="text-white text-[14px] font-regular leading-relaxed mt-4">
                 From incident briefings to safety meetings — MACH1 automatically

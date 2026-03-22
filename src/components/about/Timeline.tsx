@@ -16,7 +16,7 @@ const Timeline = () => {
     {
       period: "2019-2020",
       description:
-        "Citizenship milestone followed by MACHI's conceptual design during COVID.",
+        "The concept for MACH1 is introduced as a unified platform for airport operations and safety.",
     },
     {
       period: "2020-2021",

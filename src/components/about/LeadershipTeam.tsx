@@ -124,7 +124,7 @@ export default function LeadershipTeam() {
           </div>
 
           {/* Strategic Advisor Board */}
-          <div>
+          {/* <div>
             <h2 className="lg:text-[56px] text-[36px] font-regular text-center mb-6">
               Strategic Advisor Board
             </h2>
@@ -144,7 +144,7 @@ export default function LeadershipTeam() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

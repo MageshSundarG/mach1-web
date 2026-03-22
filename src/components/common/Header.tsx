@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button"; // Keeping import though unused in current logic just in case, or remove if not needed. Actually original didn't use it, just imported it. I'll keep it.
 import { Menu, X } from "lucide-react";
 
 interface HeaderProps {
@@ -103,10 +102,11 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            {isDark ? (
-              <button
+            {/* {isDark ? ( */}
+              <Link
+                to="/contact"
                 data-aos="zoom-in"
-                className={`px-8 py-3 font-medium rounded-full text-[16px] transition ${
+                className={`inline-flex items-center justify-center px-8 py-3 font-medium rounded-full text-[16px] transition ${
                   isScrolled
                     ? "bg-black text-white hover:bg-gray-800"
                     : isDark
@@ -115,8 +115,8 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
                 }`}
               >
                 Request Demo
-              </button>
-            ) : (
+              </Link>
+            {/* ) : (
               <>
                 <button
                   className={`text-[16px] font-medium transition ${
@@ -137,7 +137,7 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
                   Login
                 </button>
               </>
-            )}
+            )} */}
           </div>
 
           {/* Mobile Hamburger */}
@@ -181,9 +181,13 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
 
               <div className="flex flex-col gap-3">
                 {isDark ? (
-                  <button className="w-full bg-black text-white px-8 py-3 rounded-full text-sm hover:bg-gray-800 transition font-semibold">
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="w-full bg-black text-white px-8 py-3 rounded-full text-sm hover:bg-gray-800 transition font-semibold text-center"
+                  >
                     Request Demo
-                  </button>
+                  </Link>
                 ) : (
                   <>
                     <button className="w-full bg-white text-black border border-gray-200 px-8 py-3 rounded-full text-sm hover:bg-gray-50 transition font-medium">

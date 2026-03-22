@@ -7,14 +7,14 @@ const PricingPage = () => {
       subtitle: "Small Airports, Airlines, GSE & MRO",
       description:
         "Ops + Safety platform for foundational operational & safety excellence",
-      buttonText: "Start pilot",
+      buttonText: "Start Demo",
       buttonStyle: "border-[1px] border-white text-white hover:bg-white/10",
       bgColor: "bg-[#0A2463]",
       sections: [
         {
           title: "INCLUDES",
           features: [
-            "Operations",
+            // "Operations",
             {
               main: "Safety",
               sub: [
@@ -41,7 +41,7 @@ const PricingPage = () => {
           ],
         },
         {
-          title: "AI-POWERED FEATURES",
+          title: "AI-POWERED FEATURES ( Addon )",
           features: [
             "Categorization AI",
             "Safety Dashboard (AI Insight Options)",
@@ -92,7 +92,7 @@ const PricingPage = () => {
           ],
         },
         {
-          title: "AI-POWERED FEATURES",
+          title: "AI-POWERED FEATURES ( Addon )",
           features: [
             "Conversational AI",
             "Categorization Model",
@@ -138,7 +138,7 @@ const PricingPage = () => {
           ],
         },
         {
-          title: "AI-POWERED FEATURES",
+          title: "AI-POWERED FEATURES ( Addon )",
           features: [
             "Full AI Suite",
             "Explainable AI insights",
@@ -169,7 +169,7 @@ const PricingPage = () => {
             "Learning, Maintenance, Drone & Compliance Suites",
             "Multi-airport & authority-wide deployments",
             "CAP tracking, audit-readiness & evidence traceability",
-            "Security, AVOP/AVIP (Under Development)",
+            "Security, AVOP/AVIP",
             "Environment (Interest based)",
             "Gate Management (Interest based)",
             "Schedule & Time Clock (Interest based)",
@@ -247,7 +247,7 @@ const PricingPage = () => {
             <div className="space-y-6 flex-grow overflow-y-auto">
               {plan.sections.map((section, sectionIdx) => (
                 <div key={sectionIdx}>
-                  <h4 className="text-[14px] lg:text-[16px] font-bold uppercase tracking-wider text-white mb-4">
+                  <h4 className="text-[14px] lg:text-[14px] font-bold uppercase tracking-wider text-white mb-4">
                     {section.title}
                   </h4>
                   <div className="space-y-3">

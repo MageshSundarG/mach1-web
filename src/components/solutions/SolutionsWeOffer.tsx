@@ -4,7 +4,7 @@ export default function SolutionsWeOffer() {
   const navigate = useNavigate();
   const solutions = [
     {
-      title: "Comprehensive Operations Module",
+      title: "Comprehensive Operations",
       description:
         "Data-driven campaigns that deliver measurable ROI through targeted ads and smart optimizations.",
       icon: "/assets/solutions/session1/1.png",
@@ -40,7 +40,7 @@ export default function SolutionsWeOffer() {
       icon: "/assets/solutions/session1/5.png",
     },
     {
-      title: "CADORs Module",
+      title: "CADORs",
       description:
         "Data-driven campaigns that deliver measurable ROI through targeted ads and smart optimizations.",
       icon: "/assets/solutions/session1/6.png",
@@ -70,7 +70,7 @@ export default function SolutionsWeOffer() {
       icon: "/assets/solutions/session1/10.png",
     },
     {
-      title: "Comprehensive Inspection Module",
+      title: "Comprehensive Inspection",
       description:
         "Data-driven campaigns that deliver measurable ROI through targeted ads and smart optimizations.",
       icon: "/assets/solutions/session1/11.png",

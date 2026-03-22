@@ -160,20 +160,15 @@ const PurposeImpact = () => {
                 gives frontline teams the real-time intelligence they need,
                 while aligning with ICAO, Transport Canada, and FAA standards.
               </p>
-              {/* <button
-                data-aos="zoom-in"
-                className="w-full px-8 py-3 bg-[#0071FF] my-4 text-white rounded-full text-[16px] font-bold hover:opacity-90 transition-all active:scale-95"
-              >
-                Explore MACH1
-              </button> */}
-              <GradientBorderButton
+             
+              {/* <GradientBorderButton
                 animation="zoom-in"
                 className="w-full h-[46px] my-4"
               >
                 <span className="block w-full text-center px-8 py-3 text-[16px] font-bold">
                   Explore MACH1
                 </span>
-              </GradientBorderButton>
+              </GradientBorderButton> */}
             </section>
           </div>
           {/* End of Right Column */}
