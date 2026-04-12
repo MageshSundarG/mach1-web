@@ -204,14 +204,14 @@ const Maintenance = () => {
         <div className="mt-12 flex flex-col items-center gap-3 text-sm text-white/60 sm:flex-row">
           <span>Urgent?</span>
           <a
-            href="mailto:hello@mach1wave.com"
+            href="mailto:abby.logan@wavionix.com"
             className="group inline-flex items-center gap-2 rounded-full px-5 py-2 font-medium text-white transition-all"
             style={{
               background: `linear-gradient(135deg, ${BRAND_BLUE} 0%, ${BRAND_BLUE_DEEP} 100%)`,
               boxShadow: `0 0 30px ${BRAND_BLUE}66`,
             }}
           >
-            hello@mach1wave.com
+            abby.logan@wavionix.com
             <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
