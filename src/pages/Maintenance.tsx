@@ -15,7 +15,7 @@ const Maintenance = () => {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, hsl(var(--glow-blue) / 0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 50% 100%, hsl(var(--gold) / 0.10) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 40%, hsl(var(--glow-blue) / 0.28) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 50% 100%, hsl(var(--glow-cyan) / 0.15) 0%, transparent 70%)",
         }}
       />
 
@@ -51,8 +51,8 @@ const Maintenance = () => {
         </div>
         <div className="hidden items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--text-muted-light))] sm:flex">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(var(--gold))] opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(var(--gold))]" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(var(--glow-cyan))] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(var(--glow-cyan))]" />
           </span>
           Status · Maintenance
         </div>
@@ -65,7 +65,7 @@ const Maintenance = () => {
           <div className="absolute inset-0 rounded-full border border-[hsl(var(--text-light)/0.12)]" />
           <div className="absolute inset-4 rounded-full border border-[hsl(var(--text-light)/0.10)]" />
           <div className="absolute inset-10 rounded-full border border-[hsl(var(--text-light)/0.08)]" />
-          <div className="absolute inset-16 rounded-full border border-[hsl(var(--gold)/0.25)]" />
+          <div className="absolute inset-16 rounded-full border border-[hsl(var(--glow-blue)/0.35)]" />
           {/* Crosshair */}
           <div className="absolute inset-0">
             <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-[hsl(var(--text-light)/0.08)]" />
@@ -76,7 +76,7 @@ const Maintenance = () => {
             className="absolute inset-0 rounded-full"
             style={{
               background:
-                "conic-gradient(from 0deg, transparent 0deg, hsl(var(--glow-cyan) / 0.35) 30deg, transparent 60deg)",
+                "conic-gradient(from 0deg, transparent 0deg, hsl(var(--glow-cyan) / 0.45) 30deg, transparent 60deg)",
               animation: "radar-sweep 4s linear infinite",
               maskImage:
                 "radial-gradient(circle, black 60%, transparent 100%)",
@@ -84,27 +84,33 @@ const Maintenance = () => {
           />
           {/* Blips */}
           <span
-            className="absolute h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))] shadow-[0_0_12px_hsl(var(--gold))]"
+            className="absolute h-1.5 w-1.5 rounded-full bg-[hsl(var(--glow-cyan))] shadow-[0_0_12px_hsl(var(--glow-cyan))]"
             style={{ top: "28%", left: "62%", animation: "blip 3s ease-in-out infinite" }}
           />
           <span
-            className="absolute h-1 w-1 rounded-full bg-[hsl(var(--glow-cyan))] shadow-[0_0_10px_hsl(var(--glow-cyan))]"
+            className="absolute h-1 w-1 rounded-full bg-[hsl(var(--glow-blue))] shadow-[0_0_10px_hsl(var(--glow-blue))]"
             style={{ top: "68%", left: "34%", animation: "blip 3.6s ease-in-out infinite 0.8s" }}
           />
           {/* Center */}
-          <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold))] shadow-[0_0_24px_hsl(var(--gold)/0.8)]" />
+          <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--glow-cyan))] shadow-[0_0_28px_hsl(var(--glow-cyan)/0.9)]" />
         </div>
 
         {/* Label */}
-        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[hsl(var(--gold)/0.3)] bg-[hsl(var(--gold)/0.06)] px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.4em] text-[hsl(var(--gold))]">
+        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[hsl(var(--glow-blue)/0.4)] bg-[hsl(var(--glow-blue)/0.08)] px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.4em] text-[hsl(var(--glow-cyan))]">
           <span>Flight&nbsp;Ops</span>
-          <span className="h-1 w-1 rounded-full bg-[hsl(var(--gold))]" />
+          <span className="h-1 w-1 rounded-full bg-[hsl(var(--glow-cyan))]" />
           <span>Grounded{".".repeat((tick % 3) + 1)}</span>
         </div>
 
         <h1 className="mb-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
           Preparing for
-          <span className="ml-3 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(40 90% 60%) 100%)" }}>
+          <span
+            className="ml-3 inline-block bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, hsl(var(--glow-cyan)) 0%, hsl(var(--glow-blue)) 100%)",
+            }}
+          >
             takeoff.
           </span>
         </h1>
@@ -141,10 +147,15 @@ const Maintenance = () => {
           <span>Urgent?</span>
           <a
             href="mailto:hello@mach1wave.com"
-            className="group inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.4)] bg-transparent px-5 py-2 font-medium text-[hsl(var(--gold))] transition-colors hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--navy-deep))]"
+            className="group inline-flex items-center gap-2 rounded-full px-5 py-2 font-medium text-white shadow-[0_0_30px_hsl(var(--glow-blue)/0.4)] transition-all hover:shadow-[0_0_40px_hsl(var(--glow-blue)/0.7)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, hsl(var(--glow-cyan)) 0%, hsl(var(--glow-blue)) 100%)",
+            }}
           >
             hello@mach1wave.com
             <svg
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="14"
               height="14"
