@@ -1,7 +1,6 @@
 import ScrollResetLink from "@/components/common/ScrollResetLink";
 import { blogApi } from "@/lib/api/blog";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight } from "lucide-react";
 
 const GetMoreInsights = () => {
   const postsQuery = useQuery({
@@ -49,9 +48,8 @@ const GetMoreInsights = () => {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post, idx) => (
-                <ScrollResetLink
+                <article
                   key={post.slug}
-                  to={`/blog/${post.slug}`}
                   className={`glass-panel motion-fade-up elegant-transition group rounded-[28px] p-4 hover:-translate-y-1 ${idx === 1 ? "motion-delay-1" : idx === 2 ? "motion-delay-2" : ""}`}
                 >
                   <div className="overflow-hidden rounded-[22px]">
@@ -62,24 +60,15 @@ const GetMoreInsights = () => {
                     />
                   </div>
                   <div className="px-2 pb-2 pt-5">
-                    <h3 className="elegant-transition text-[26px] font-regular leading-[1.12] text-white group-hover:text-[#8CC0FF] lg:text-[32px]">
+                    <h3 className="text-[26px] font-regular leading-[1.12] text-white lg:text-[32px]">
                       {post.title}
                     </h3>
                     <p className="copy-balanced mt-3 line-clamp-3 text-[15px] text-white/72 lg:text-[16px]">
                       {post.excerpt}
                     </p>
                   </div>
-                </ScrollResetLink>
+                </article>
               ))}
-            </div>
-
-            <div className="motion-fade-up motion-delay-3 mt-12">
-              <ScrollResetLink
-                to="/blog"
-                className="elegant-transition inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-6 py-3 text-[15px] font-semibold text-white/82 hover:-translate-y-0.5 hover:bg-white/[0.08] hover:text-white"
-              >
-                View More Insights <ArrowRight size={16} />
-              </ScrollResetLink>
             </div>
           </section>
         </div>

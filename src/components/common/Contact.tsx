@@ -66,6 +66,9 @@ type TurnstileApi = {
 const Contact = ({ gradient = true }: { gradient?: boolean }) => {
   const turnstileSiteKey =
     import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+  const isLocalDev =
+    typeof window !== "undefined" &&
+    ["localhost", "127.0.0.1"].includes(window.location.hostname);
   const formRef = useRef<HTMLFormElement | null>(null);
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
   const turnstileWidgetIdRef = useRef<string | null>(null);
@@ -79,6 +82,12 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
+    if (isLocalDev) {
+      setTurnstileReady(true);
+      setCaptchaToken("local-dev-bypass");
+      return;
+    }
+
     const renderWidget = () => {
       const widgets = window as Window & { turnstile?: TurnstileApi };
       if (!widgets.turnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) {
@@ -145,7 +154,7 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
     return () => {
       script.removeEventListener("load", renderWidget);
     };
-  }, [turnstileSiteKey]);
+  }, [isLocalDev, turnstileSiteKey]);
 
   const submitContactRequest = async (token: string) => {
     const response = await fetch("/api/contact", {
@@ -155,6 +164,7 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
         ...form,
         focusAreas: selectedFocusAreas,
         products: selectedProducts,
+        botcheck: "",
         turnstileToken: token,
       }),
     });
@@ -178,6 +188,27 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (isLocalDev) {
+      setStatus("submitting");
+      setErrorMessage("");
+
+      try {
+        await submitContactRequest("local-dev-bypass");
+        setStatus("success");
+        setForm(initialForm);
+        setSelectedFocusAreas([]);
+        setSelectedProducts([]);
+      } catch (error) {
+        setStatus("error");
+        setErrorMessage(
+          error instanceof Error
+            ? error.message
+            : "We couldn't send the message just now. Please try again.",
+        );
+      }
+      return;
+    }
 
     if (!turnstileWidgetIdRef.current || !turnstileReady) {
       setStatus("error");
@@ -395,7 +426,18 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
               <div className="space-y-3">
                 <label className="form-label">Security Check</label>
                 <div className="rounded-[22px] border border-white/12 bg-white/[0.05] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  <div ref={turnstileContainerRef} />
+                  {isLocalDev ? (
+                    <p className="text-sm text-white/75">
+                      Cloudflare Turnstile is bypassed on localhost for development only.
+                    </p>
+                  ) : (
+                    <div ref={turnstileContainerRef} />
+                  )}
+                  <p className="mt-3 text-xs text-white/60">
+                    {isLocalDev
+                      ? "This bypass applies only in local development. Turnstile remains required after deployment."
+                      : "Protected by Cloudflare Turnstile to block automated submissions."}
+                  </p>
                 </div>
               </div>
 

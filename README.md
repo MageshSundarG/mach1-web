@@ -13,8 +13,12 @@ This project now includes a Cloudflare-native blog system built for:
 
 Public routes:
 
-- `/blog`
-- `/blog/:slug`
+- `/`
+- `/about`
+- `/packages`
+- `/solutions`
+- `/solutions/operations`
+- `/contact`
 
 Admin routes:
 
@@ -42,8 +46,16 @@ Functions API routes:
 
 Frontend/runtime:
 
-- `VITE_WEB3FORMS_ACCESS_KEY`
 - `VITE_TURNSTILE_SITE_KEY`
+- `TURNSTILE_SECRET_KEY`
+- `BREVO_API_KEY`
+- `CONTACT_FROM_EMAIL`
+- `CONTACT_TO_EMAIL`
+
+Optional contact email metadata:
+
+- `CONTACT_FROM_NAME`
+- `CONTACT_TO_NAME`
 
 Optional blog image uploads:
 

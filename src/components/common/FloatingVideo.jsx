@@ -151,6 +151,7 @@ export default function FloatingVideoWidget() {
   const [duration, setDuration] = useState(0);
   const [showControls, setShowControls] = useState(false);
   const [hoverBubble, setHoverBubble] = useState(false);
+  const [videoAspectRatio, setVideoAspectRatio] = useState(16 / 9);
   const videoRef = useRef(null);
   const controlsTimer = useRef(null);
 
@@ -161,7 +162,7 @@ export default function FloatingVideoWidget() {
   }
 }, [expanded]);
 
-  const VIDEO_SRC = "../../../assets/vid.mp4";
+  const VIDEO_SRC = "https://ik.imagekit.io/5l25qpaqj/vid.mp4";
 
   const formatTime = (s) => {
     if (!s || isNaN(s)) return "0:00";
@@ -188,8 +189,19 @@ export default function FloatingVideoWidget() {
   };
 
   const handleLoaded = () => {
-    if (videoRef.current) setDuration(videoRef.current.duration);
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+      const { videoWidth, videoHeight } = videoRef.current;
+      if (videoWidth && videoHeight) {
+        setVideoAspectRatio(videoWidth / videoHeight);
+      }
+    }
   };
+
+  const expandedWidth =
+    videoAspectRatio >= 1
+      ? Math.min(520, Math.max(360, Math.round(videoAspectRatio * 260)))
+      : Math.min(420, Math.max(320, Math.round(videoAspectRatio * 420)));
 
   const seek = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -251,7 +263,7 @@ export default function FloatingVideoWidget() {
         {expanded && (
           <div
             style={{
-              width: "360px",
+              width: `min(${expandedWidth}px, calc(100vw - 32px))`,
               background: "rgba(12, 10, 30, 0.96)",
               borderRadius: "20px",
               overflow: "hidden",
@@ -276,7 +288,7 @@ export default function FloatingVideoWidget() {
               style={{
                 position: "relative",
                 background: "#000",
-                aspectRatio: "16/9",
+                aspectRatio: `${videoAspectRatio}`,
               }}
             >
               <video
@@ -284,7 +296,7 @@ export default function FloatingVideoWidget() {
                 src={VIDEO_SRC}
                 style={{
                   width: "100%",
-                  height: "600px",
+                  height: "100%",
                   objectFit: "cover",
                   display: "block",
                 }}

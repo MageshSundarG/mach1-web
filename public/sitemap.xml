@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mach-blog.pages.dev/</loc>
+    <loc>https://mach1wave.com/</loc>
   </url>
   <url>
-    <loc>https://mach-blog.pages.dev/about</loc>
+    <loc>https://mach1wave.com/about</loc>
   </url>
   <url>
-    <loc>https://mach-blog.pages.dev/packages</loc>
+    <loc>https://mach1wave.com/packages</loc>
   </url>
   <url>
-    <loc>https://mach-blog.pages.dev/solutions</loc>
+    <loc>https://mach1wave.com/solutions</loc>
   </url>
   <url>
-    <loc>https://mach-blog.pages.dev/solutions/operations</loc>
+    <loc>https://mach1wave.com/solutions/operations</loc>
   </url>
   <url>
-    <loc>https://mach-blog.pages.dev/contact</loc>
-  </url>
-  <url>
-    <loc>https://mach-blog.pages.dev/blog</loc>
-  </url>
-  <url>
-    <loc>https://mach-blog.pages.dev/blog/ai-powered-airport-operations</loc>
-  </url>
-  <url>
-    <loc>https://mach-blog.pages.dev/blog/predictive-safety-systems-for-airports</loc>
-  </url>
-  <url>
-    <loc>https://mach-blog.pages.dev/blog/designing-calm-command-centers</loc>
+    <loc>https://mach1wave.com/contact</loc>
   </url>
 </urlset>

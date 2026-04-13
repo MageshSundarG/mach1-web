@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -11,8 +11,6 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Solutions from "./pages/Solutions";
 import OperationsSolution from "./pages/OperationsSolution";
-import Blog from "./pages/Blog";
-import BlogPostPage from "./pages/BlogPost";
 import Consultant from "./pages/Consultant";
 import { useEffect } from "react";
 import AdminLoginPage from "./pages/admin/AdminLoginPage";
@@ -172,8 +170,8 @@ const App = () => {
           <Route path="/packages" element={<Packages />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/blog" element={<Navigate to="/" replace />} />
+          <Route path="/blog/:slug" element={<Navigate to="/" replace />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/admin/posts/new" element={<AdminPostEditorPage />} />

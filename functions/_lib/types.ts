@@ -4,6 +4,11 @@ export interface Env {
   IMAGEKIT_PUBLIC_KEY?: string;
   IMAGEKIT_URL_ENDPOINT?: string;
   TURNSTILE_SECRET_KEY?: string;
+  BREVO_API_KEY?: string;
+  CONTACT_FROM_EMAIL?: string;
+  CONTACT_FROM_NAME?: string;
+  CONTACT_TO_EMAIL?: string;
+  CONTACT_TO_NAME?: string;
 }
 
 export type UserRole = "admin" | "author";
