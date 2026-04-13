@@ -1,0 +1,10 @@
+name = "mach-blog"
+compatibility_date = "2026-04-03"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mach-db"
+database_id = "1b521121-1eb7-44af-869c-295ae5265aab"
+preview_database_id = "1b521121-1eb7-44af-869c-295ae5265aab"
+migrations_dir = "migrations"
