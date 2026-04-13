@@ -8,3 +8,4 @@ database_name = "mach-db"
 database_id = "3c76ce4a-1713-47b5-90c4-b816a45628b5"
 preview_database_id = "3c76ce4a-1713-47b5-90c4-b816a45628b5"
 migrations_dir = "migrations"
+
