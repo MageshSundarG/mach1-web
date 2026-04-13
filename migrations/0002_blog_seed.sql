@@ -34,7 +34,7 @@ VALUES (
 )
 ON CONFLICT(id) DO NOTHING;
 
-INSERT INTO ~posts (
+INSERT INTO posts (
   id,
   author_id,
   title,

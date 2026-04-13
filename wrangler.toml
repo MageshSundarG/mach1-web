@@ -5,6 +5,6 @@ pages_build_output_dir = "./dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "mach-db"
-database_id = "1b521121-1eb7-44af-869c-295ae5265aab"
-preview_database_id = "1b521121-1eb7-44af-869c-295ae5265aab"
+database_id = "3c76ce4a-1713-47b5-90c4-b816a45628b5"
+preview_database_id = "3c76ce4a-1713-47b5-90c4-b816a45628b5"
 migrations_dir = "migrations"
