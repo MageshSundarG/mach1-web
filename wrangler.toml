@@ -1,5 +1,5 @@
 name = "mach-blog"
-compatibility_date = "2026-04-03"
+compatibility_date = "2026-04-13"
 pages_build_output_dir = "./dist"
 
 [[d1_databases]]
