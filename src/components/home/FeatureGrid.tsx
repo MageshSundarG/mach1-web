@@ -42,7 +42,7 @@ const FeatureGrid = () => {
   ];
 
   return (
-    <section data-header-tone="light" className="site-shell pb-36 font-sans">
+    <section data-header-tone="light" className="site-shell pb-36 font-sans mt-10">
       {/* Header */}
       {/* <div className="text-center mb-10"> */}
       {/* <span className="text-[56px] font-regular text-black">
@@ -58,7 +58,7 @@ const FeatureGrid = () => {
       <div className="mx-auto px-2 pb-10 text-center">
         <h1
           data-aos="fade-down"
-          className="title-balanced mx-auto mb-6 max-w-2xl text-[34px] font-regular text-black md:text-5xl lg:text-[56px]"
+          className="title-balanced mx-auto mb-6 max-w-2xl text-[34px] font-regular text-white md:text-5xl lg:text-[56px]"
         >
           How MACH1 Redefines
           <br />
@@ -71,7 +71,7 @@ const FeatureGrid = () => {
           <br />
           {/* <span className="text-blue-600 font-normal">Intelligence</span> */}
         </h1>
-        <p className="copy-balanced mx-auto max-w-5xl text-[16px] font-regular text-black">
+        <p className="copy-balanced mx-auto max-w-5xl text-[16px] font-regular text-white">
           MACH1 runs on the world's first AI model built exclusively for airport
           operations and safety. Unlike general-purpose AIs, MACH1 "speaks
           airport" — understanding inspections, NOTAMs, incidents, and wildlife

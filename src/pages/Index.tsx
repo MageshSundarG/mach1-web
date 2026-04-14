@@ -14,7 +14,7 @@ import FloatingVideo from "@/components/common/FloatingVideo";
 
 const Index = () => {
   return (
-    <main className="min-h-screen overflow-x-hidden font-sans">
+    <main className="min-h-screen overflow-x-clip font-sans">
       <Header variant="dark" />
       <MachLandingPage />
       {/* <BusinessMarquee /> */}
