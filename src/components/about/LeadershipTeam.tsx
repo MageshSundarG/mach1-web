@@ -4,13 +4,13 @@ export default function LeadershipTeam() {
       name: "Dennis Raj",
       title: "Co-Founder & CSO",
       image:
-        "./assets/about/session2/dennis.png",
+        "./assets/about/session2/dennis.jpeg",
     },
     {
       name: "Abby Logan",
       title: "Co-Founder & CEO",
       image:
-        "./assets/about/session2/abby.png",
+        "./assets/about/session2/abby.jpeg",
     },
   ];
 

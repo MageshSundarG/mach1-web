@@ -266,10 +266,10 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
     <div data-header-tone="light" className="overflow-hidden bg-white pb-20">
       <div className="site-shell mt-36 grid grid-cols-1 gap-14 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
         <div className="relative pt-6 lg:pt-28">
-          <div className="pointer-events-none absolute right-0 top-0 hidden overflow-visible lg:block">
+          <div className="pointer-events-none absolute inset-x-0 top-0 hidden overflow-visible lg:block">
             <img
               src="/assets/home/session8/Mask.png"
-              className="relative w-[42rem] max-w-none translate-x-[6.2%] object-contain opacity-90"
+              className="relative w-full max-w-none -translate-x-[10%] object-contain opacity-90"
               alt="Decorative contact background"
             />
           </div>
