@@ -1,3 +1,41 @@
+type Person = {
+  name: string;
+  title: string;
+  image: string;
+};
+
+const initialsFromName = (name: string) =>
+  name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+
+const ProfileImage = ({ person }: { person: Person }) => (
+  <div className="relative mb-6 h-[306px] w-[293px] overflow-hidden rounded-3xl border border-slate-200 bg-[linear-gradient(180deg,#EEF4FF_0%,#E1ECFF_46%,#D6E5FF_100%)] shadow-lg">
+    <img
+      data-aos="fade-up"
+      src={person.image}
+      alt={person.name}
+      className="h-full w-full object-cover"
+      onError={(event) => {
+        event.currentTarget.style.display = "none";
+        event.currentTarget.nextElementSibling?.classList.remove("hidden");
+      }}
+    />
+
+    <div className="hidden absolute inset-0 flex flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.96)_0%,rgba(223,236,255,0.94)_42%,rgba(205,224,255,0.96)_100%)] px-8 text-center">
+      <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/80 bg-white/70 text-[34px] font-semibold tracking-[-0.04em] text-[#1763FA] shadow-[0_18px_44px_rgba(23,99,250,0.14)]">
+        {initialsFromName(person.name)}
+      </div>
+      <p className="mt-6 text-[18px] font-semibold text-slate-900">
+        {person.name}
+      </p>
+    </div>
+  </div>
+);
+
 export default function LeadershipTeam() {
   const leaders = [
     {
@@ -31,7 +69,7 @@ export default function LeadershipTeam() {
       name: "Magesh",
       title: "Senior AI Engineer",
       image:
-        "./assets/about/session2/magesh.png",
+        "./assets/about/session2/magesh.jpeg",
     },
   ];
 
@@ -91,14 +129,7 @@ export default function LeadershipTeam() {
           <div className="flex flex-wrap justify-center gap-16 mb-24">
             {leaders.map((leader, index) => (
               <div key={index} className="text-center">
-                <div className="w-[293px] h-[306px] rounded-3xl overflow-hidden mb-6 shadow-lg">
-                  <img
-                    data-aos="fade-up"
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <ProfileImage person={leader} />
                 <h3 className="lg:text-[20px] text-[16px] font-bold">{leader.name}</h3>
                 <p className="text-black lg:text-[20px] text-[16px] font-medium">{leader.title}</p>
               </div>
@@ -109,14 +140,7 @@ export default function LeadershipTeam() {
           <div className="flex flex-wrap justify-center gap-12 mb-28">
             {team.map((member, index) => (
               <div key={index} className="text-center">
-                <div className="w-[293px] h-[306px] rounded-3xl overflow-hidden mb-6 shadow-lg">
-                  <img
-                    data-aos="fade-up"
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <ProfileImage person={member} />
                 <h3 className="lg:text-[20px] text-[16px] font-bold">{member.name}</h3>
                 <p className="text-black lg:text-[20px] text-[16px] font-medium">{member.title}</p>
               </div>
