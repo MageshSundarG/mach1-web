@@ -50,6 +50,16 @@ const Footer = ({ variant: _variant }: { variant?: string }) => {
         <div className="relative z-10 overflow-hidden bg-[#020817] pb-12 pt-20 text-white">
           <div className="site-shell">
             <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+              <div className="motion-fade-up lg:hidden">
+                <div className="glass-panel mx-auto max-w-[20rem] rounded-[28px] p-4">
+                  <img
+                    src="/assets/footer/Group 399.png"
+                    alt="Global aviation network illustration"
+                    className="mx-auto w-full max-w-[15rem] object-contain"
+                  />
+                </div>
+              </div>
+
               <div className="grid gap-12 md:grid-cols-3">
                 <div className="motion-fade-up">
                   <img

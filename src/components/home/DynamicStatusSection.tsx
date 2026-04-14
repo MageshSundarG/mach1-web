@@ -3,16 +3,16 @@ import React from "react";
 const DynamicStatusSection = () => {
   return (
     <section data-header-tone="light" className="w-full bg-white font-sans text-[#020817] selection:bg-blue-100">
-      <div className="site-shell pb-40">
+      <div className="site-shell pb-24 md:pb-40">
         {/* Top Header Section */}
-        <div className="px-2 py-32 text-center">
+        <div className="px-2 py-20 text-center md:py-32">
           <h2
             data-aos="fade-up"
-            className="title-balanced text-[30px] font-regular md:text-[56px]"
+            className="title-balanced text-[28px] font-regular md:text-[56px]"
           >
             Enhance Situational Awareness with Mach1&apos;s <br />
           </h2>
-          <span className="block bg-[linear-gradient(90deg,#015BCD_41.83%,#90C63D_83.17%)] bg-clip-text text-[30px] font-normal leading-tight text-transparent md:text-[56px] lg:leading-[1]">
+          <span className="block bg-[linear-gradient(90deg,#015BCD_41.83%,#90C63D_83.17%)] bg-clip-text text-[28px] font-normal leading-tight text-transparent md:text-[56px] lg:leading-[1]">
             AI-powered Dynamic Status Board
           </span>
 
@@ -25,9 +25,9 @@ const DynamicStatusSection = () => {
         </div>
 
         {/* Alternating Features Section */}
-        <div className="space-y-12">
+        <div className="space-y-10 md:space-y-12">
           {/* Feature 1: Image Left, Text Right */}
-          <div className="grid grid-cols-1 items-center gap-28 rounded-2xl bg-white p-4 lg:grid-cols-2 lg:px-0">
+          <div className="grid grid-cols-1 items-center gap-8 rounded-2xl bg-white p-4 md:gap-14 lg:grid-cols-2 lg:gap-28 lg:px-0">
             <div className="relative overflow-hidden rounded-3xl">
               <img
                 data-aos="fade-down"
@@ -58,7 +58,7 @@ const DynamicStatusSection = () => {
           </div>
 
           {/* Feature 2: Text Left, Image Right */}
-          <div className="grid grid-cols-1 items-center gap-28 rounded-2xl bg-white p-4 px-6 lg:grid-cols-2 lg:px-0">
+          <div className="grid grid-cols-1 items-center gap-8 rounded-2xl bg-white p-4 px-4 md:gap-14 md:px-6 lg:grid-cols-2 lg:gap-28 lg:px-0">
             <div className="order-2 space-y-6 lg:order-1">
               <h3
                 data-aos="fade-up"
@@ -93,7 +93,7 @@ const DynamicStatusSection = () => {
           </div>
 
           {/* Feature 3: Image Left, Text Right */}
-          <div className="grid grid-cols-1 items-center gap-28 rounded-2xl bg-white p-4 px-6 2xl:px-0 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-8 rounded-2xl bg-white p-4 px-4 md:gap-14 md:px-6 2xl:px-0 lg:grid-cols-2 lg:gap-28">
             <div className="relative overflow-hidden rounded-3xl">
               <img
                 data-aos="fade-down"

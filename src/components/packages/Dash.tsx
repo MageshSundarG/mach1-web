@@ -63,7 +63,7 @@ export default function Dash() {
           ))}
         </div>
 
-        <div className="pointer-events-none relative mt-10 h-[17rem]">
+        <div className="pointer-events-none relative mt-10 hidden h-[17rem]">
           <div className="package-globe-halo absolute inset-x-[8%] bottom-[18%] h-[34%] rounded-[999px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.62)_0%,rgba(181,214,255,0.38)_17%,rgba(23,99,250,0.16)_44%,rgba(23,99,250,0.02)_76%,transparent_100%)] blur-[18px]" />
           <div className="package-globe-glow absolute inset-x-[4%] bottom-[-6%] h-[52%] rounded-[999px] bg-[radial-gradient(circle_at_center,rgba(23,99,250,0.42)_0%,rgba(23,99,250,0.18)_52%,transparent_82%)] blur-[42px]" />
           <div className="package-globe-scan absolute left-1/2 top-[6%] h-[72%] w-[62%] -translate-x-1/2 rounded-full bg-[linear-gradient(180deg,transparent_0%,rgba(255,255,255,0.22)_20%,rgba(255,255,255,0.04)_52%,transparent_88%)] blur-xl" />

@@ -26,15 +26,15 @@ const ModuleCard = ({
         overflow: "hidden",
         zIndex: index + 1,
       }}
-      className="sticky mb-8 flex w-full flex-col items-center rounded-3xl border border-white/10 px-6 py-12 md:flex-row lg:px-20 lg:pl-32"
+      className="sticky mb-6 flex w-full flex-col items-center rounded-3xl border border-white/10 px-5 py-10 md:mb-8 md:flex-row md:px-6 md:py-12 lg:px-20 lg:pl-32"
     >
       {isRight && (
-        <div className="hidden flex-1 md:block">
+        <div className="mb-8 flex w-full justify-center md:mb-0 md:block md:flex-1">
           <img
             src={imageSrc}
             alt="Module Visual"
             data-aos="zoom-in"
-            className="h-[20rem] w-[20rem] object-cover"
+            className="h-[14rem] w-[14rem] object-cover md:h-[20rem] md:w-[20rem]"
           />
         </div>
       )}
@@ -72,12 +72,12 @@ const ModuleCard = ({
       </div>
 
       {!isRight && (
-        <div className="hidden flex-1 items-center justify-center md:flex">
+        <div className="mt-8 flex w-full items-center justify-center md:mt-0 md:flex-1">
           <img
             src={imageSrc}
             data-aos="fade-up"
             alt="Module Visual"
-            className="h-[20rem] w-[20rem] object-cover"
+            className="h-[14rem] w-[14rem] object-cover md:h-[20rem] md:w-[20rem]"
           />
         </div>
       )}
@@ -87,7 +87,7 @@ const ModuleCard = ({
 
 export default function AirportAISolutions() {
   return (
-    <div data-header-tone="dark" className="bg-[#020817] py-36 font-sans text-white">
+    <div data-header-tone="dark" className="bg-[#020817] py-24 md:py-36 font-sans text-white">
       <img
         src="/assets/home/session4/Group 204.png"
         className="absolute m-0 hidden h-[50rem] w-full lg:block"
@@ -108,11 +108,11 @@ export default function AirportAISolutions() {
         </div>
       </div>
 
-      <div className="site-shell mb-20 text-center">
-        <h1 className="mt-6 mb-4 px-6 text-[38px] font-regular leading-tight lg:text-[56px]">
+      <div className="site-shell mb-14 text-center md:mb-20">
+        <h1 className="mt-6 mb-4 px-2 text-[34px] font-regular leading-tight md:px-6 md:text-[38px] lg:text-[56px]">
           Our AI solutions
         </h1>
-        <p className="mx-auto max-w-5xl px-10 text-center text-[16px] font-regular text-white">
+        <p className="mx-auto max-w-5xl px-2 text-center text-[15px] font-regular text-white md:px-10 md:text-[16px]">
           MACH1 runs on the world's first AI model built exclusively for airport
           operations and safety. Unlike general-purpose AIs, MACH1 speaks
           airport -
