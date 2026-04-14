@@ -263,14 +263,16 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
   };
 
   return (
-    <div data-header-tone="light" className="overflow-hidden bg-white pb-20">
-      <div className="site-shell mt-36 grid grid-cols-1 gap-14 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+    <div data-header-tone="light" className="overflow-hidden bg-white pb-16 sm:pb-20">
+      <div className="site-shell mt-12 grid grid-cols-1 gap-12 py-14 sm:mt-20 sm:gap-14 sm:py-20 lg:mt-36 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
         <div className="relative pt-6 lg:pt-28">
           <div className="pointer-events-none absolute inset-x-0 top-0 hidden overflow-visible lg:block">
             <img
               src="/assets/home/session8/Mask.png"
               className="relative w-full max-w-none -translate-x-[10%] object-contain opacity-90"
               alt="Decorative contact background"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -290,7 +292,7 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
               ].map((item, index) => (
                 <div key={item.text} className={`motion-fade-up flex items-center gap-4 ${index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""}`}>
                   <div className="glass-panel flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#15263F]">
-                    <img src={item.icon} alt="" className="h-5 w-5 object-contain" />
+                    <img src={item.icon} alt="" loading="lazy" decoding="async" className="h-5 w-5 object-contain" />
                   </div>
                   <span className="text-[16px] font-medium text-slate-900 lg:text-[17px]">
                     {item.text}
@@ -474,16 +476,20 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
               src="/assets/home/session8/Group 354.png"
               className="h-full w-full object-bottom"
               alt="Background gradient"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         )}
 
-        <div className="site-shell relative pb-40">
-          <div className="motion-fade-up motion-delay-2 relative overflow-hidden rounded-[28px] border border-white/8 bg-gradient-to-tr from-[#0B3A7E] to-[#020B18] px-6 py-12 md:px-12 md:py-16">
+        <div className="site-shell relative pb-20 sm:pb-40">
+          <div className="motion-fade-up motion-delay-2 relative overflow-hidden rounded-[28px] border border-white/8 bg-gradient-to-tr from-[#0B3A7E] to-[#020B18] px-6 py-10 md:px-12 md:py-16">
             <div className="pointer-events-none absolute right-20 top-1/2 hidden -translate-y-1/2 lg:block">
               <img
                 src="/assets/home/session8/4.png"
                 alt=""
+                loading="lazy"
+                decoding="async"
                 className="motion-float"
               />
             </div>

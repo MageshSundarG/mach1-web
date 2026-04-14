@@ -57,13 +57,13 @@ export default function LeadershipTeam() {
       name: "Rakesh P",
       title: "Head of Innovations",
       image:
-        "./assets/about/session2/rakesh.png",
+        "./assets/about/session2/rakesh.jpeg",
     },
     {
       name: "Senthil",
       title: "Senior QA Manager",
       image:
-        "./assets/about/session2/senthil.png",
+        "./assets/about/session2/senthil.jpeg",
     },
     {
       name: "Magesh",

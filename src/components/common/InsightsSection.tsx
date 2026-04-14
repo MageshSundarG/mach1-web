@@ -45,6 +45,8 @@ const InsightsSection = () => {
                 src="/assets/home/session7/Subtract.png"
                 className="relative w-full max-w-none translate-x-[18.2%] object-contain"
                 alt="Mask"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -76,6 +78,8 @@ const InsightsSection = () => {
                     <img
                       src={post.cover_image_url || "/assets/home/session7/1.png"}
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                   </div>

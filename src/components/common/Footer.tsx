@@ -47,17 +47,17 @@ const Footer = ({ variant: _variant }: { variant?: string }) => {
           </svg>
         </div>
 
-        <div className="relative z-10 overflow-hidden bg-[#020817] pb-12 pt-20 text-white">
+        <div className="relative z-10 overflow-hidden bg-[#020817] pb-12 pt-16 sm:pt-20 text-white">
           <div className="site-shell">
             <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:items-start">
               <div className="motion-fade-up lg:hidden">
-                <div className="glass-panel mx-auto max-w-[20rem] rounded-[28px] p-4">
-                  <img
-                    src="/assets/footer/Group 399.png"
-                    alt="Global aviation network illustration"
-                    className="mx-auto w-full max-w-[15rem] object-contain"
-                  />
-                </div>
+                <img
+                  src="/assets/footer/Group 399.png"
+                  alt="Global aviation network illustration"
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto w-full max-w-[18rem] object-contain"
+                />
               </div>
 
               <div className="grid gap-12 md:grid-cols-3">
@@ -65,6 +65,8 @@ const Footer = ({ variant: _variant }: { variant?: string }) => {
                   <img
                     src="/assets/logo.png"
                     alt="Mach1 logo"
+                    loading="lazy"
+                    decoding="async"
                     className="h-10 w-24 object-contain"
                   />
                   <p className="copy-balanced mt-5 max-w-xs text-[15px] text-white/65">
@@ -103,13 +105,13 @@ const Footer = ({ variant: _variant }: { variant?: string }) => {
               </div>
 
               <div className="motion-fade-up motion-delay-3 hidden lg:flex lg:justify-end">
-                <div className="glass-panel w-full max-w-[32rem] rounded-[32px] p-6">
-                  <img
-                    src="/assets/footer/Group 399.png"
-                    alt="Global aviation network illustration"
-                    className="motion-float w-full"
-                  />
-                </div>
+                <img
+                  src="/assets/footer/Group 399.png"
+                  alt="Global aviation network illustration"
+                  loading="lazy"
+                  decoding="async"
+                  className="motion-float w-full max-w-[32rem] object-contain"
+                />
               </div>
             </div>
           </div>

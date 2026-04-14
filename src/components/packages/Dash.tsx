@@ -71,6 +71,8 @@ export default function Dash() {
           <img
             src="/assets/packages/session3/globesvg.svg"
             alt="Earth"
+            loading="lazy"
+            decoding="async"
             className="motion-globe absolute inset-x-1/2 bottom-0 h-full w-[150%] max-w-none -translate-x-1/2 object-contain object-bottom"
           />
           <div className="package-globe-title absolute inset-x-0 bottom-3 z-10 text-center">
@@ -156,6 +158,8 @@ export default function Dash() {
           <img
             src="/assets/packages/session3/globesvg.svg"
             alt="Earth"
+            loading="lazy"
+            decoding="async"
             className="motion-globe h-full w-full object-contain object-bottom"
           />
         </div>

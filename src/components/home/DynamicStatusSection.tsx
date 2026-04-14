@@ -33,6 +33,8 @@ const DynamicStatusSection = () => {
                 data-aos="fade-down"
                 src="/assets/home/session6/1.png"
                 alt="Unified live operational dashboard map"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -86,6 +88,8 @@ const DynamicStatusSection = () => {
                 <img
                   src="/assets/home/session6/2.png"
                   alt="AI-driven foresight board interface"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -99,6 +103,8 @@ const DynamicStatusSection = () => {
                 data-aos="fade-down"
                 src="/assets/home/session6/3.png"
                 alt="Intelligent tiles for proactive decision-making"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>

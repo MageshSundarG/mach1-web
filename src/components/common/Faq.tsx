@@ -3,6 +3,7 @@ import { Plus } from "lucide-react";
 
 const Faq = ({ bg = "#020817" }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const sectionBg = "#0066FF";
 
   const faqData = [
     {
@@ -39,8 +40,8 @@ const Faq = ({ bg = "#020817" }) => {
   return (
     <section
       data-header-tone={bg === "#fff" ? "light" : "dark"}
-      className="relative isolate top-0 w-full overflow-hidden py-16 sm:py-20"
-      style={{ backgroundColor: bg }}
+      className="relative isolate top-0 w-full overflow-hidden py-12 sm:py-20"
+      style={{ backgroundColor: sectionBg }}
     >
       <div className="pointer-events-none absolute left-1/2 z-20 w-full -translate-x-1/2 top-[-16px] sm:top-[-25px] md:top-[-38px] lg:top-[-56px] xl:top-[-74px] 2xl:top-[-100px]">
         <svg
@@ -52,12 +53,12 @@ const Faq = ({ bg = "#020817" }) => {
         >
           <path
             d="M0 20.0058C0 8.96019 8.9541 0.00593454 19.9997 0.00574781L360 0L540 0.00608591H630H664.43C671.044 0.00608591 677.229 3.27496 680.955 8.73864L703.476 41.767C711.415 53.4104 728.585 53.4104 736.524 41.7669L759.045 8.73863C762.771 3.27495 768.956 0.00608591 775.57 0.00608591H810H900L1080 0L1420 0.00574781C1431.05 0.00593454 1440 8.96018 1440 20.0057V1171C1440 1182.05 1431.05 1191 1420 1191H20C8.95432 1191 0 1182.05 0 1171V20.0058Z"
-            fill="#0066FF"
+            fill={sectionBg}
           />
         </svg>
       </div>
 
-      <div className="relative z-30 bg-[#0066FF] sm:pb-20">
+      <div className="relative z-30 pb-0 sm:pb-20" style={{ backgroundColor: sectionBg }}>
         <div className="site-shell mb-12 text-center sm:mb-16">
           <h2
             data-aos="fade-up"

@@ -195,6 +195,8 @@ const FeatureGrid = () => {
                   <img
                     src={`/assets/home/session3/${feature.image}`}
                     alt="Feature"
+                    loading="lazy"
+                    decoding="async"
                     className="elegant-transition group-hover:scale-[1.04]"
                   />
                 </div>

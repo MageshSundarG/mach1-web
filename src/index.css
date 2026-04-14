@@ -747,6 +747,11 @@
     letter-spacing: -0.035em;
     line-height: 1.02;
   }
+
+  img[loading="lazy"] {
+    content-visibility: auto;
+    contain-intrinsic-size: 320px;
+  }
 }
 
 @keyframes fade-up {
@@ -1026,5 +1031,31 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-surface {
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+      0 14px 34px rgba(2, 8, 23, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .elegant-transition {
+    transition:
+      transform 320ms var(--motion-ease),
+      opacity 280ms var(--motion-ease),
+      background-color 220ms ease,
+      border-color 220ms ease,
+      box-shadow 320ms var(--motion-ease),
+      color 220ms ease,
+      filter 220ms ease;
   }
 }

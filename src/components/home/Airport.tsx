@@ -82,6 +82,8 @@ const Airport = () => {
                   src="/assets/home/session2/1.png"
                   data-aos="zoom-in"
                   alt="Reduce manual reporting by up to 70%"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <p className="text-[16px] font-semibold text-[#0E1F39] text-left leading-tight md:w-full w-60">
@@ -95,6 +97,8 @@ const Airport = () => {
                   src="/assets/home/session2/2.png"
                   data-aos="zoom-in"
                   alt="Detect risks before they escalate"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <p className="text-[16px] font-semibold text-[#0E1F39] text-left leading-tight md:w-full w-60">
@@ -108,6 +112,8 @@ const Airport = () => {
                   src="/assets/home/session2/3.png"
                   data-aos="zoom-in"
                   alt="Empower teams with instant situational clarity"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <p className="text-[16px] font-semibold text-[#0E1F39] text-left leading-tight md:w-full w-60">
@@ -123,6 +129,8 @@ const Airport = () => {
             <img
               src="/assets/home/session2/main 1.png"
               alt="Airport Dashboard Mockup"
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover rounded-lg"
             />
           </div>

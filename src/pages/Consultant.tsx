@@ -274,7 +274,7 @@ function Consultant() {
               <span className="mt-1 block h-16 w-1 rounded-full bg-[#2D7DFF]" />
               <div>
                 <h2 className="title-balanced text-[32px] font-light text-[#222] md:text-[48px]">
-                  FROM ADVISORY {"->"} IMPLEMENTATION
+                  FROM ADVISORY TO IMPLEMENTATION
                 </h2>
                 <p className="copy-balanced mt-5 text-[15px] text-slate-600 md:text-[17px]">
                   Many advisory engagements evolve into full deployment through the MACH1 Aviation

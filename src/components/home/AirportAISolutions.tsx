@@ -34,6 +34,8 @@ const ModuleCard = ({
             src={imageSrc}
             alt="Module Visual"
             data-aos="zoom-in"
+            loading="lazy"
+            decoding="async"
             className="h-[14rem] w-[14rem] object-cover md:h-[20rem] md:w-[20rem]"
           />
         </div>
@@ -77,6 +79,8 @@ const ModuleCard = ({
             src={imageSrc}
             data-aos="fade-up"
             alt="Module Visual"
+            loading="lazy"
+            decoding="async"
             className="h-[14rem] w-[14rem] object-cover md:h-[20rem] md:w-[20rem]"
           />
         </div>
@@ -92,6 +96,8 @@ export default function AirportAISolutions() {
         src="/assets/home/session4/Group 204.png"
         className="absolute m-0 hidden h-[50rem] w-full lg:block"
         alt=""
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="site-shell flex justify-center">

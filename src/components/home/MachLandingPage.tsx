@@ -42,7 +42,7 @@ const MachLandingPage = () => {
           </Link>
         </div>
 
-        <div className="relative mt-8 w-full self-center sm:w-screen">
+        <div className="relative mt-6 w-full self-center sm:mt-8 sm:w-screen">
           <div className="relative w-full">
             <img
               src="/assets/home/session1/Ellipse 2.png"
@@ -50,26 +50,26 @@ const MachLandingPage = () => {
               className="motion-float absolute inset-x-0 top-[10rem] z-10 hidden h-[102%] w-full object-bottom lg:block"
             />
 
-            <div className="relative z-20 mb-2 mt-4 w-full overflow-visible">
+            <div className="relative z-20 mb-1 mt-2 w-full overflow-visible sm:mb-2 sm:mt-4">
               <img
                 src="/assets/home/session1/Group 489.png"
                 alt="MACH1 platform preview"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
-                className="motion-fade-up motion-delay-2 relative z-20 mx-auto w-[165%] max-w-none -translate-x-[18%] object-contain sm:right-3/4 sm:w-[250%] sm:translate-x-0"
+                className="motion-fade-up motion-delay-2 relative z-20 mx-auto w-[122%] max-w-[34rem] -translate-x-[6%] object-contain sm:right-3/4 sm:w-[250%] sm:max-w-none sm:translate-x-0"
               />
             </div>
 
-            <div className="relative z-20 mt-4 px-4 lg:mt-6">
-              <div className="mb-4 text-center">
+            <div className="relative z-20 mt-2 px-4 sm:mt-4 lg:mt-6">
+              <div className="mb-3 text-center sm:mb-4">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.55em] text-white/78 md:text-[12px]">
                   Supported By
                 </span>
               </div>
 
               <div className="site-shell">
-                <div className="relative mx-auto max-w-[1020px] overflow-hidden rounded-[18px] border border-white/14 bg-[linear-gradient(180deg,rgba(96,135,208,0.4),rgba(77,116,189,0.28))] px-4 py-4 shadow-[0_16px_50px_rgba(5,14,36,0.28),inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-xl md:rounded-[20px] md:px-8 md:py-5">
+                <div className="relative mx-auto max-w-[1020px] overflow-hidden rounded-[18px] border border-white/14 bg-[linear-gradient(180deg,rgba(96,135,208,0.4),rgba(77,116,189,0.28))] px-3 py-3 shadow-[0_16px_50px_rgba(5,14,36,0.28),inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-xl sm:px-4 sm:py-4 md:rounded-[20px] md:px-8 md:py-5">
                   <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/45 to-transparent" />
                   <div className="pointer-events-none absolute inset-x-[18%] top-1/2 h-10 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
 

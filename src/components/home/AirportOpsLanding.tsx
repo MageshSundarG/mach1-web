@@ -43,6 +43,8 @@ const AirportOpsLanding = () => {
                 src="/assets/home/session7/Subtract.png"
                 className="object-contain"
                 alt="MASK"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -53,6 +55,8 @@ const AirportOpsLanding = () => {
             <img
               src="/assets/home/session2/Group 362.png"
               alt="Group 362"
+              loading="lazy"
+              decoding="async"
               className="absolute left-[-8rem] top-[50%] hidden h-auto w-full translate-x-[-10%] translate-y-[-50%] overflow-hidden object-cover lg:block"
             />
             <div
@@ -62,6 +66,8 @@ const AirportOpsLanding = () => {
               <img
                 src="/assets/home/session2/main 1.png"
                 alt="Airport Dashboard Mockup"
+                loading="lazy"
+                decoding="async"
                 className="z-10 h-auto w-full rounded-lg object-cover"
               />
             </div>
