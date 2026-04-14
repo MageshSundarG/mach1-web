@@ -50,7 +50,7 @@ const MachLandingPage = () => {
               className="motion-float absolute inset-x-0 top-[10rem] z-10 hidden h-[102%] w-full object-bottom lg:block"
             />
 
-            <div className="relative z-20 mb-1 mt-2 w-full overflow-visible sm:mb-2 sm:mt-4">
+            <div className="relative z-20 hidden w-full overflow-visible lg:mb-2 lg:mt-4 lg:block">
               <img
                 src="/assets/home/session1/Group 489.png"
                 alt="MACH1 platform preview"
