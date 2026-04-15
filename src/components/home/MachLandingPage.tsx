@@ -30,7 +30,16 @@ const MachLandingPage = () => {
         </p>
 
         <div className="motion-fade-up motion-delay-3 mt-8 flex flex-col gap-3 sm:flex-row">
-          <GradientBorderButton className="h-[50px] sm:w-[14rem]">
+          <GradientBorderButton
+            className="h-[50px] sm:w-[14rem]"
+            onClick={() =>
+              window.dispatchEvent(
+                new CustomEvent("mach1:open-video", {
+                  detail: { fullscreen: true },
+                }),
+              )
+            }
+          >
             <span className="px-8 py-3 text-[15px] font-medium">Watch Video</span>
           </GradientBorderButton>
 

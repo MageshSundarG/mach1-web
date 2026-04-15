@@ -1,5 +1,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import GradientBorderButton from "./GradientBorderButton";
+import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
 
 const focusAreas = [
   "AI",
@@ -64,12 +66,15 @@ type TurnstileApi = {
 };
 
 const Contact = ({ gradient = true }: { gradient?: boolean }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const turnstileSiteKey =
     import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
   const isLocalDev =
     typeof window !== "undefined" &&
     ["localhost", "127.0.0.1"].includes(window.location.hostname);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const contactTopRef = useRef<HTMLDivElement | null>(null);
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
   const turnstileWidgetIdRef = useRef<string | null>(null);
   const pendingSubmitRef = useRef(false);
@@ -80,6 +85,10 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const scrollToContactTop = () => {
+    contactTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     if (isLocalDev) {
@@ -264,7 +273,10 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
 
   return (
     <div data-header-tone="light" className="overflow-hidden bg-white pb-16 sm:pb-20">
-      <div className="site-shell mt-12 grid grid-cols-1 gap-12 py-14 sm:mt-20 sm:gap-14 sm:py-20 lg:mt-36 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+      <div
+        ref={contactTopRef}
+        className="site-shell mt-12 grid grid-cols-1 gap-12 py-14 sm:mt-20 sm:gap-14 sm:py-20 lg:mt-36 lg:grid-cols-[0.92fr_1.08fr] lg:items-start"
+      >
         <div className="relative pt-6 lg:pt-28">
           <div className="pointer-events-none absolute inset-x-0 top-0 hidden overflow-visible lg:block">
             <img
@@ -502,7 +514,10 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
                 {`Let's build the future of airport ops together`}
               </p>
               <div className="mt-8 max-w-xs">
-                <button className="premium-button-secondary elegant-transition w-full rounded-full px-6 py-4 text-[16px] font-semibold text-black lg:text-[18px]">
+                <button
+                  className="premium-button-secondary elegant-transition w-full rounded-full px-6 py-4 text-[16px] font-semibold text-black lg:text-[18px]"
+                  onClick={scrollToContactTop}
+                >
                   Book a Demo
                 </button>
               </div>

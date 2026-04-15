@@ -12,7 +12,7 @@ import About from "./pages/About";
 import Solutions from "./pages/Solutions";
 import OperationsSolution from "./pages/OperationsSolution";
 import Consultant from "./pages/Consultant";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import AdminLoginPage from "./pages/admin/AdminLoginPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminPostEditorPage from "./pages/admin/AdminPostEditorPage";
@@ -24,25 +24,24 @@ const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    let timeoutId: number | undefined;
-    let rafId1 = 0;
-    let rafId2 = 0;
+    if (!("scrollRestoration" in window.history)) {
+      return;
+    }
 
-    scrollToPageTop();
-    rafId1 = window.requestAnimationFrame(() => {
-      scrollToPageTop();
-      rafId2 = window.requestAnimationFrame(scrollToPageTop);
-    });
-    timeoutId = window.setTimeout(scrollToPageTop, 180);
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
 
     return () => {
-      window.cancelAnimationFrame(rafId1);
-      window.cancelAnimationFrame(rafId2);
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
+      window.history.scrollRestoration = previous;
     };
-  }, [location.pathname, location.search, location.hash]);
+  }, []);
+
+  useLayoutEffect(() => {
+    scrollToPageTop();
+    window.requestAnimationFrame(() => {
+      scrollToPageTop();
+    });
+  }, [location.key, location.pathname, location.search, location.hash]);
 
   return null;
 };

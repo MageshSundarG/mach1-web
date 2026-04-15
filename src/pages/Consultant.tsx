@@ -130,6 +130,15 @@ const implementationCards = [
 ];
 
 function Consultant() {
+  const scrollToAdvisoryDomains = () => {
+    const section = document.getElementById("advisory-domains");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  const scrollToConsultantContact = () => {
+    const section = document.getElementById("consultant-contact");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <>
       <Header variant="dark" />
@@ -140,7 +149,7 @@ function Consultant() {
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(23,99,250,0.18),transparent_58%)]" />
         <div className="pointer-events-none absolute left-1/2 top-48 h-[22rem] w-[30rem] -translate-x-1/2 rounded-full bg-[#1763FA]/12 blur-[120px]" />
-        <div className="pointer-events-none absolute bottom-0 left-1/2 h-[18rem] w-[80rem] -translate-x-1/2 bg-[linear-gradient(180deg,rgba(23,99,250,0)_0%,rgba(23,99,250,0.18)_100%)]" />
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-[18rem] w-full -translate-x-1/2 bg-[linear-gradient(180deg,rgba(23,99,250,0)_0%,rgba(23,99,250,0.18)_100%)]" />
 
         <div className="site-shell relative z-10">
           <div className="max-w-4xl">
@@ -159,7 +168,10 @@ function Consultant() {
             </p>
 
             <div className="mt-8">
-              <GradientBorderButton className="h-[48px]">
+              <GradientBorderButton
+                className="h-[48px]"
+                onClick={scrollToAdvisoryDomains}
+              >
                 <span className="px-8 py-3 text-[14px] font-medium">Explore Advisory Services</span>
               </GradientBorderButton>
             </div>
@@ -188,7 +200,11 @@ function Consultant() {
         </div>
       </section>
 
-      <section data-header-tone="light" className="relative bg-white pb-28 pt-24 text-[#020817]">
+      <section
+        id="advisory-domains"
+        data-header-tone="light"
+        className="relative bg-white pb-28 pt-24 text-[#020817]"
+      >
         <div className="absolute left-1/2 top-0 z-10 w-full -translate-x-1/2 pointer-events-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +385,10 @@ function Consultant() {
                   define the roadmap.
                 </p>
                 <div className="mt-8">
-                  <GradientBorderButton className="h-[50px]">
+                  <GradientBorderButton
+                    className="h-[50px]"
+                    onClick={scrollToConsultantContact}
+                  >
                     <span className="px-8 py-3 text-[14px] font-medium">
                       Schedule a Consultation
                     </span>
@@ -382,7 +401,9 @@ function Consultant() {
       </section>
 
       <Faq bg="#020817" />
-      <Contact />
+      <div id="consultant-contact">
+        <Contact />
+      </div>
       <Footer variant="dark" />
     </>
   );

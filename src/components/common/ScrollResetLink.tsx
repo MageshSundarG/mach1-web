@@ -26,6 +26,14 @@ export default function ScrollResetLink({
       const samePath = pathname === location.pathname;
       const sameHash = `${hash ? `#${hash}` : ""}` === location.hash;
 
+      if (!samePath) {
+        scrollToPageTop();
+        window.requestAnimationFrame(() => {
+          scrollToPageTop();
+        });
+        return;
+      }
+
       if (samePath && sameHash) {
         scrollToPageTop();
         window.requestAnimationFrame(() => {

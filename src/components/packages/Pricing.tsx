@@ -1,6 +1,11 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
 
 const PricingPage = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const plans = [
     {
       name: "Foundation",
@@ -239,6 +244,7 @@ const PricingPage = () => {
             {/* CTA Button */}
             <button
               className={`elegant-transition mb-8 w-full rounded-full py-3 font-semibold text-[16px] lg:text-[18px] ${plan.buttonStyle}`}
+              onClick={() => navigateWithScrollTop(navigate, location.pathname, "/contact")}
             >
               {plan.buttonText}
             </button>

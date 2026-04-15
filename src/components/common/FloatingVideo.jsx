@@ -144,6 +144,7 @@ const CloseIcon = () => (
 export default function FloatingVideoWidget() {
   const [expanded, setExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
   const [volume, setVolume] = useState(0.8);
@@ -154,13 +155,60 @@ export default function FloatingVideoWidget() {
   const [videoAspectRatio, setVideoAspectRatio] = useState(16 / 9);
   const videoRef = useRef(null);
   const controlsTimer = useRef(null);
+  const pendingFullscreenRef = useRef(false);
 
   useEffect(() => {
-  if (expanded && videoRef.current) {
-    videoRef.current.play();
-    setPlaying(true);
-  }
-}, [expanded]);
+    if (expanded && videoRef.current) {
+      videoRef.current.play();
+      setPlaying(true);
+
+      if (pendingFullscreenRef.current) {
+        pendingFullscreenRef.current = false;
+        window.setTimeout(() => {
+          videoRef.current?.requestFullscreen?.();
+        }, 120);
+      }
+    }
+  }, [expanded]);
+
+  useEffect(() => {
+    const handleOpenVideo = (event) => {
+      const shouldFullscreen = Boolean(event?.detail?.fullscreen);
+      pendingFullscreenRef.current = shouldFullscreen;
+      setIsVisible(true);
+      setExpanded(true);
+    };
+
+    window.addEventListener("mach1:open-video", handleOpenVideo);
+
+    return () => {
+      window.removeEventListener("mach1:open-video", handleOpenVideo);
+    };
+  }, []);
+
+  useEffect(() => {
+    const syncFullscreenState = () => {
+      const fullscreenElement =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+
+      setIsFullscreen(fullscreenElement === videoRef.current);
+    };
+
+    document.addEventListener("fullscreenchange", syncFullscreenState);
+    document.addEventListener("webkitfullscreenchange", syncFullscreenState);
+    document.addEventListener("mozfullscreenchange", syncFullscreenState);
+    document.addEventListener("MSFullscreenChange", syncFullscreenState);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", syncFullscreenState);
+      document.removeEventListener("webkitfullscreenchange", syncFullscreenState);
+      document.removeEventListener("mozfullscreenchange", syncFullscreenState);
+      document.removeEventListener("MSFullscreenChange", syncFullscreenState);
+    };
+  }, []);
 
   const VIDEO_SRC = "https://ik.imagekit.io/5l25qpaqj/vid.mp4";
 
@@ -297,7 +345,8 @@ export default function FloatingVideoWidget() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: isFullscreen ? "contain" : "cover",
+                  background: "#000",
                   display: "block",
                 }}
                 onTimeUpdate={handleProgress}

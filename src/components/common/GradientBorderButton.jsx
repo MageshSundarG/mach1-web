@@ -5,6 +5,7 @@ const GradientBorderButton = ({
   className = "",
   font = "font-medium",
   type = "button",
+  ...props
 }) => {
   return (
     <div
@@ -16,6 +17,7 @@ const GradientBorderButton = ({
     >
       <button
         type={type}
+        {...props}
         className={`
           premium-button elegant-transition relative h-full w-full rounded-full px-0 text-white ${font}
           active:translate-y-0 active:shadow-[0_12px_26px_rgba(0,113,255,0.22)]

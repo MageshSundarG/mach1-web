@@ -1,7 +1,12 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import GradientBorderButton from "../common/GradientBorderButton";
+import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
 
 const AirportOpsLanding = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div data-header-tone="dark" className="bg-[#020817] font-sans text-white selection:bg-blue-500/30">
       <div className="relative">
@@ -141,13 +146,19 @@ const AirportOpsLanding = () => {
             with every use.
           </p>
           <div className="shrink-0 flex flex-wrap justify-center gap-4 py-4">
-            <GradientBorderButton className="h-[48px]">
+            <GradientBorderButton
+              className="h-[48px]"
+              onClick={() => navigateWithScrollTop(navigate, location.pathname, "/contact")}
+            >
               <span className="rounded-full bg-black px-8 py-3.5 text-[14px] font-medium">
                 Request Demo
               </span>
             </GradientBorderButton>
 
-            <button className="rounded-full bg-white px-8 py-3 text-[14px] font-semibold text-black transition-all hover:bg-gray-100 active:scale-95">
+            <button
+              className="rounded-full bg-white px-8 py-3 text-[14px] font-semibold text-black transition-all hover:bg-gray-100 active:scale-95"
+              onClick={() => navigateWithScrollTop(navigate, location.pathname, "/solutions")}
+            >
               Learn More
             </button>
           </div>

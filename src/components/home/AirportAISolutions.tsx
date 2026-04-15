@@ -1,5 +1,7 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import GradientBorderButton from "../common/GradientBorderButton";
+import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
 
 const ModuleCard = ({
   badge,
@@ -9,6 +11,7 @@ const ModuleCard = ({
   alignment = "left",
   imageSrc,
   index = 0,
+  onCtaClick,
 }) => {
   const isRight = alignment === "right";
 
@@ -66,7 +69,10 @@ const ModuleCard = ({
           {description}
         </p>
 
-        <GradientBorderButton className="mt-4 h-[46px] w-full md:w-[14rem]">
+        <GradientBorderButton
+          className="mt-4 h-[46px] w-full md:w-[14rem]"
+          onClick={onCtaClick}
+        >
           <span className="block px-10 py-2 text-[16px] font-regular">
             Learn More
           </span>
@@ -90,6 +96,9 @@ const ModuleCard = ({
 };
 
 export default function AirportAISolutions() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div data-header-tone="dark" className="bg-[#020817] py-24 md:py-36 font-sans text-white">
       <img
@@ -140,6 +149,7 @@ export default function AirportAISolutions() {
           alignment="right"
           imageSrc="/assets/home/session4/1.png"
           index={0}
+          onCtaClick={() => navigateWithScrollTop(navigate, location.pathname, "/solutions")}
         />
         <ModuleCard
           badge="Actionable foresight"
@@ -149,6 +159,7 @@ export default function AirportAISolutions() {
           alignment="left"
           imageSrc="/assets/home/session4/2.png"
           index={1}
+          onCtaClick={() => navigateWithScrollTop(navigate, location.pathname, "/solutions")}
         />
         <ModuleCard
           badge="Ask in plain language"
@@ -158,6 +169,7 @@ export default function AirportAISolutions() {
           alignment="right"
           imageSrc="/assets/home/session4/3.png"
           index={2}
+          onCtaClick={() => navigateWithScrollTop(navigate, location.pathname, "/solutions")}
         />
         <ModuleCard
           badge="Connects the dots across time and teams"
@@ -167,6 +179,7 @@ export default function AirportAISolutions() {
           alignment="left"
           imageSrc="/assets/home/session4/4.png"
           index={3}
+          onCtaClick={() => navigateWithScrollTop(navigate, location.pathname, "/solutions")}
         />
       </div>
     </div>
