@@ -30,13 +30,13 @@ const BlogPostPage = () => {
   return (
     <>
       <Header variant="light" />
-      <main data-header-tone="light" className="bg-[#f5f1e8] pb-24 pt-32 text-[#1c2430]">
+      <main data-header-tone="light" className="bg-white pb-24 pt-32 text-[#1c2430]">
         <article className="site-shell">
-          <div className="border-x border-[#d8cfbe] bg-[linear-gradient(180deg,rgba(255,255,255,0.42),rgba(255,255,255,0.12))]">
+          <div className="border-x border-[#d8cfbe] bg-white">
             <div className="border-b border-[#d8cfbe] px-6 py-6 md:px-10">
               <ScrollResetLink
                 to="/blog"
-                className="inline-flex items-center gap-2 rounded-full border border-[#d8cfbe] bg-white/80 px-5 py-2.5 text-sm text-[#4f5966] shadow-[0_10px_30px_rgba(35,44,60,0.05)]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#d8cfbe] bg-white px-5 py-2.5 text-sm text-[#4f5966] shadow-[0_10px_30px_rgba(35,44,60,0.05)]"
               >
                 <ArrowLeft size={16} /> Back to Journal
               </ScrollResetLink>
@@ -51,14 +51,14 @@ const BlogPostPage = () => {
                       <span>{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
                       <span>8 min read</span>
                     </div>
-                    <h1 className="mt-6 text-[40px] leading-[1.08] text-[#16202b] md:text-[68px]">
+                    <h1 className="title-balanced mx-auto mt-6 max-w-5xl text-[34px] font-normal leading-[1.08] text-[#16202b] md:text-[48px]">
                       {post.title}
                     </h1>
-                    <p className="mx-auto mt-6 max-w-4xl text-[20px] leading-8 text-[#5d6673]">
+                    <p className="copy-balanced mx-auto mt-6 max-w-3xl text-[15px] leading-7 text-[#5d6673] md:text-[17px]">
                       {post.excerpt}
                     </p>
                     <div className="mt-8 flex items-center justify-center gap-4 text-sm text-[#6d7480]">
-                      <span className="rounded-full border border-[#d8cfbe] bg-white/70 px-4 py-2">
+                      <span className="rounded-full border border-[#d8cfbe] bg-white px-4 py-2">
                         MACH1 Editorial
                       </span>
                     </div>
@@ -76,9 +76,11 @@ const BlogPostPage = () => {
                 </div>
 
                 <div className="border-b border-[#d8cfbe] px-6 py-8 md:px-10 md:py-10">
-                  <div className="mb-8 border border-[#ddd3c2] bg-[#fbf8f1] px-6 py-5 text-[16px] leading-8 text-[#57616e] shadow-[0_14px_40px_rgba(35,44,60,0.04)]">
+                  <div className="mb-8 border border-[#ddd3c2] bg-white px-6 py-5 text-[15px] leading-7 text-[#57616e] shadow-[0_14px_40px_rgba(35,44,60,0.04)] md:text-[16px]">
                     <p>
-                      This article is part of the MACH1 Journal, a publication focused on how airport operations teams use safety systems, workflow design, and applied AI to make better decisions.
+                      This article is part of the MACH1 Journal, a publication focused on how
+                      airport operations teams use safety systems, workflow design, and applied AI
+                      to make better decisions.
                     </p>
                   </div>
 
@@ -92,7 +94,7 @@ const BlogPostPage = () => {
                         <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8c7f69]">
                           Keep Reading
                         </p>
-                        <h2 className="mt-3 text-[30px] text-[#16202b] md:text-[40px]">
+                        <h2 className="title-balanced mt-3 text-[28px] font-normal leading-tight text-[#16202b] md:text-[36px]">
                           More articles from the journal
                         </h2>
                       </div>
@@ -114,10 +116,10 @@ const BlogPostPage = () => {
                             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8c7f69]">
                               {entry.tags[0] || "Journal"}
                             </p>
-                            <h3 className="mt-3 text-[25px] leading-[1.18] text-[#16202b]">
+                            <h3 className="mt-3 text-[22px] font-normal leading-[1.2] text-[#16202b] md:text-[24px]">
                               {entry.title}
                             </h3>
-                            <p className="mt-4 flex-1 text-[15px] leading-7 text-[#5c6571]">
+                            <p className="mt-4 flex-1 text-[15px] leading-7 text-[#5c6571] md:text-[16px]">
                               {entry.excerpt}
                             </p>
                             <span className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-[#155eef]">

@@ -47,19 +47,20 @@ const Blog = () => {
   return (
     <>
       <Header variant="light" />
-      <main data-header-tone="light" className="bg-[#f5f1e8] pb-24 pt-32 text-[#1c2430]">
+      <main data-header-tone="light" className="bg-white pb-24 pt-32 text-[#1c2430]">
         <section className="site-shell">
-          <div className="border-x border-[#d8cfbe] bg-[linear-gradient(180deg,rgba(255,255,255,0.42),rgba(255,255,255,0.12))]">
+          <div className="border-x border-[#d8cfbe] bg-white">
             <div className="border-b border-[#d8cfbe] px-6 py-12 md:px-10 md:py-16">
               <div className="text-center">
-                <span className="inline-flex rounded-full border border-[#d8cfbe] bg-white/80 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#7a6d58]">
+                <span className="inline-flex rounded-full border border-[#d8cfbe] bg-white px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#7a6d58]">
                   MACH1 Journal
                 </span>
-                <h1 className="mt-7 text-[24px] leading-[1.06] text-[#16202b] md:text-[25px]">
+                <h1 className="title-balanced mt-7 text-[34px] font-normal leading-[1.08] text-[#16202b] md:text-[48px]">
                   Perspectives on operations, technology, leadership, and how modern teams work.
                 </h1>
-                <p className="mx-auto mt-6 max-w-3xl text-[18px] leading-8 text-[#5d6673]">
-                  Authors share insights on building better systems, making clearer decisions, and running resilient organizations.
+                <p className="copy-balanced mx-auto mt-6 max-w-3xl text-[15px] leading-7 text-[#5d6673] md:text-[17px]">
+                  Authors share insights on building better systems, making clearer decisions, and
+                  running resilient organizations.
                 </p>
               </div>
             </div>
@@ -71,7 +72,7 @@ const Blog = () => {
                     <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8c7f69]">
                       Latest Articles
                     </p>
-                    <h2 className="mt-3 text-[30px] text-[#16202b] md:text-[40px]">
+                    <h2 className="title-balanced mt-3 text-[28px] font-normal leading-tight text-[#16202b] md:text-[36px]">
                       Recent insights from the journal
                     </h2>
                   </div>
@@ -96,10 +97,10 @@ const Blog = () => {
                           <span>{post.tags[0] || "Journal"}</span>
                           <span>{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
                         </div>
-                        <h3 className="mt-4 line-clamp-3 text-[27px] leading-[1.18] text-[#16202b]">
+                        <h3 className="mt-4 line-clamp-3 text-[22px] font-normal leading-[1.2] text-[#16202b] md:text-[24px]">
                           {post.title}
                         </h3>
-                        <p className="mt-4 flex-1 line-clamp-4 text-[16px] leading-7 text-[#5c6571]">
+                        <p className="mt-4 flex-1 line-clamp-4 text-[15px] leading-7 text-[#5c6571] md:text-[16px]">
                           {post.excerpt}
                         </p>
                         <span className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold text-[#155eef]">
@@ -130,8 +131,8 @@ const Blog = () => {
 
             {!postsQuery.hasNextPage && posts.length > 0 ? (
               <div className="px-6 pb-10 md:px-10">
-                <div className="border border-[#ddd3c2] bg-[#f8f4ec] p-6 text-center text-[#6c727d]">
-                  You’ve reached the end of the journal.
+                <div className="border border-[#ddd3c2] bg-white p-6 text-center text-[#6c727d]">
+                  You've reached the end of the journal.
                 </div>
               </div>
             ) : null}
