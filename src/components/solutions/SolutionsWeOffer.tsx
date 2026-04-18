@@ -93,6 +93,41 @@ export default function SolutionsWeOffer() {
         "Data-driven campaigns that deliver measurable ROI through targeted ads and smart optimizations.",
       icon: "/assets/solutions/session1/14.png",
     },
+    {
+      title: "Security",
+      description:
+        "Manage security operations, access control, and compliance workflows in one unified system. From threat risk assessments (TRA), permits, and blacklist tracking to lost & found and curbside assistance, ensure full visibility, traceability, and regulatory alignment across airport security operations. (Under Development)",
+      icon: "/assets/solutions/session1/security-icon.png",
+      isExtractedIcon: true,
+    },
+    {
+      title: "AVOP",
+      description:
+        "Digitize airside permits, testing, and renewals with structured workflows aligned to regulatory requirements. Track certifications, manage expiries, and ensure only authorized personnel operate airside with full audit traceability. (Beta Enabled)",
+      icon: "/assets/solutions/session1/avop-icon.png",
+      isExtractedIcon: true,
+    },
+    {
+      title: "Quality Assessment",
+      description:
+        "Streamline audits, inspections, and compliance checks with structured workflows and automated tracking. Link findings to corrective actions, monitor progress, and ensure continuous compliance with full traceability and audit readiness. (Beta Enabled)",
+      icon: "/assets/solutions/session1/quality-assessment-icon.png",
+      isExtractedIcon: true,
+    },
+    {
+      title: "Training",
+      description:
+        "Manage training programs, budgets, certifications, and expiry tracking in one system. Monitor team readiness, ensure compliance, and maintain full visibility across departments. (Beta Enabled)",
+      icon: "/assets/solutions/session1/training-icon.png",
+      isExtractedIcon: true,
+    },
+    {
+      title: "LMS & Global Training Hub",
+      description:
+        "Create courses, issue certificates, and manage training from one aviation-focused platform. Share training and access a global database of aviation courses, track completions, and deliver structured learning across departments and airport communities. (Beta Enabled)",
+      icon: "/assets/solutions/session1/lms-training-hub-icon.png",
+      isExtractedIcon: true,
+    },
   ];
 
   return (
@@ -157,8 +192,17 @@ export default function SolutionsWeOffer() {
                 </p>
               </div>
               <div className="flex justify-end items-end">
-                <div className="text-5xl opacity-80 filter brightness-110">
-                  <img data-aos="zoom-in" src={solution.icon} alt="icon" className="elegant-transition group-hover:-translate-y-1 group-hover:scale-[1.08]" />
+                <div className="flex h-[92px] w-[92px] items-center justify-center text-5xl opacity-80 filter brightness-110">
+                  <img
+                    data-aos="zoom-in"
+                    src={solution.icon}
+                    alt="icon"
+                    className={`elegant-transition h-[78px] w-[78px] object-contain group-hover:-translate-y-1 group-hover:scale-[1.08] ${
+                      solution.isExtractedIcon
+                        ? "brightness-0 saturate-100 invert-[48%] sepia-[96%] saturate-[2648%] hue-rotate-[195deg] brightness-[103%] contrast-[103%] drop-shadow-[0_0_14px_rgba(23,126,255,0.42)]"
+                        : ""
+                    }`}
+                  />
                   {/* <svg width="80" height="80" viewBox="0 0 80 80" className="text-blue-400">
                     <circle cx="40" cy="40" r="30" fill="currentColor" opacity="0.2"/>
                     <circle cx="40" cy="40" r="20" fill="currentColor" opacity="0.4"/>

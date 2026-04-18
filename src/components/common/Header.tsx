@@ -32,6 +32,7 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [tone, setTone] = useState<"dark" | "light">(variant === "dark" ? "dark" : "light");
   const location = useLocation();
   const queryClient = useQueryClient();
@@ -104,6 +105,25 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const syncOverlayState = (event?: Event) => {
+      const customEvent = event as CustomEvent<{ open?: boolean }> | undefined;
+      const nextOpen =
+        typeof customEvent?.detail?.open === "boolean"
+          ? customEvent.detail.open
+          : document.body.classList.contains("mach1-overlay-open");
+
+      setIsOverlayOpen(nextOpen);
+    };
+
+    syncOverlayState();
+    window.addEventListener("mach1:overlay-visibility", syncOverlayState as EventListener);
+
+    return () => {
+      window.removeEventListener("mach1:overlay-visibility", syncOverlayState as EventListener);
+    };
+  }, []);
+
   const compact = scrollY > 28;
   const progress = Math.min(Math.max((scrollY - 8) / 110, 0), 1);
   const useSolidLightHeader = !compact && tone === "light";
@@ -129,7 +149,7 @@ const Header = ({ variant = "dark", inside }: HeaderProps) => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[1000] pt-4 transition-transform duration-300 ${isVisible || isMenuOpen ? "translate-y-0" : "-translate-y-[120%]"}`}
+      className={`fixed inset-x-0 top-0 z-[1000] pt-4 transition-all duration-300 ${isOverlayOpen ? "pointer-events-none -translate-y-[140%] opacity-0" : isVisible || isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-[120%] opacity-100"}`}
     >
       <div className="site-shell">
         <div

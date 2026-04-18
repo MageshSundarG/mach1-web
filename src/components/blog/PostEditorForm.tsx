@@ -175,10 +175,10 @@ export default function PostEditorForm({
           <select
             value={status}
             onChange={(event) => updateField("status", event.target.value as PostStatus)}
-            className="form-field"
+            className="form-field bg-black text-white"
           >
-            <option value="draft">Draft</option>
-            <option value="published">Published</option>
+            <option value="draft" className="bg-black text-white">Draft</option>
+            <option value="published" className="bg-black text-white">Published</option>
           </select>
         </label>
       </div>

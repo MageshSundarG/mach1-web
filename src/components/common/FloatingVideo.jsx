@@ -144,6 +144,7 @@ const CloseIcon = () => (
 export default function FloatingVideoWidget() {
   const [expanded, setExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
@@ -183,6 +184,24 @@ export default function FloatingVideoWidget() {
 
     return () => {
       window.removeEventListener("mach1:open-video", handleOpenVideo);
+    };
+  }, []);
+
+  useEffect(() => {
+    const syncOverlayState = (event) => {
+      const nextOpen =
+        typeof event?.detail?.open === "boolean"
+          ? event.detail.open
+          : document.body.classList.contains("mach1-overlay-open");
+
+      setIsOverlayOpen(nextOpen);
+    };
+
+    syncOverlayState();
+    window.addEventListener("mach1:overlay-visibility", syncOverlayState);
+
+    return () => {
+      window.removeEventListener("mach1:overlay-visibility", syncOverlayState);
     };
   }, []);
 
@@ -305,6 +324,9 @@ export default function FloatingVideoWidget() {
           right: "28px",
           zIndex: 9999,
           transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          opacity: isOverlayOpen ? 0 : 1,
+          pointerEvents: isOverlayOpen ? "none" : "auto",
+          transform: isOverlayOpen ? "translateY(24px)" : "translateY(0)",
         }}
       >
         {/* EXPANDED PLAYER */}
@@ -638,9 +660,9 @@ export default function FloatingVideoWidget() {
               onMouseEnter={() => setHoverBubble(true)}
               onMouseLeave={() => setHoverBubble(false)}
               style={{
-                width: "10rem",
-                height: "10rem",
-                borderRadius: "50%",
+                width: "9.25rem",
+                height: "5.5rem",
+                borderRadius: "14px",
                 overflow: "hidden",
                 cursor: "pointer",
                 position: "relative",
@@ -690,13 +712,13 @@ export default function FloatingVideoWidget() {
               onClick={() => setIsVisible(false)}
               style={{
                 position: "absolute",
-                top: "4px",
-                right: "4px",
+                top: "-10px",
+                right: "-10px",
                 // background: "rgba(239, 68, 68, 0.9)",
                 background: "#0071FF",
                 color: "white",
                 border: "none",
-                borderRadius: "50%",
+                borderRadius: "999px",
                 width: "28px",
                 height: "28px",
                 display: "flex",
@@ -704,7 +726,8 @@ export default function FloatingVideoWidget() {
                 justifyContent: "center",
                 cursor: "pointer",
                 zIndex: 10,
-                boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                boxShadow: "0 8px 22px rgba(0,0,0,0.28)",
+                border: "2px solid rgba(255,255,255,0.85)",
               }}
             >
               <CloseIcon />

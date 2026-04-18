@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
+import MobileScreensCarousel from "./MobileScreensCarousel";
 
 const Airport = () => {
   return (
@@ -126,12 +127,15 @@ const Airport = () => {
         {/* --- Dashboard UI Mockup --- */}
         <main data-aos="zoom-in" className="site-shell">
           <div className="bg-gradient-to-b from-blue-200/0 to-blue-700/20 rounded-2xl p-4 md:p-8 shadow-inner">
+            <div className="md:hidden">
+              <MobileScreensCarousel />
+            </div>
             <img
               src="/assets/home/session2/main 1.png"
               alt="Airport Dashboard Mockup"
               loading="lazy"
               decoding="async"
-              className="w-full h-auto object-cover rounded-lg"
+              className="hidden h-auto w-full rounded-lg object-cover md:block"
             />
           </div>
         </main>

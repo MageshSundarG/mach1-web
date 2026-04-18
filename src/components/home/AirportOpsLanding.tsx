@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import GradientBorderButton from "../common/GradientBorderButton";
 import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
+import MobileScreensCarousel from "./MobileScreensCarousel";
 
 const AirportOpsLanding = () => {
   const location = useLocation();
@@ -68,12 +69,15 @@ const AirportOpsLanding = () => {
               data-aos="zoom-in-up"
               className="rounded-2xl border border-blue-100 border-opacity-10 bg-gradient-to-b from-blue-200/0 to-blue-700/20 p-4 shadow-inner md:p-8"
             >
+              <div className="md:hidden">
+                <MobileScreensCarousel />
+              </div>
               <img
                 src="/assets/home/session2/main 1.png"
                 alt="Airport Dashboard Mockup"
                 loading="lazy"
                 decoding="async"
-                className="z-10 h-auto w-full rounded-lg object-cover"
+                className="z-10 hidden h-auto w-full rounded-lg object-cover md:block"
               />
             </div>
           </div>
