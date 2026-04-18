@@ -144,8 +144,8 @@ const AirportOpsLanding = () => {
       <div className="bottom-0 z-50 w-full bg-[#0F79FF]">
         <div className="site-shell flex flex-col items-center justify-between gap-4 py-8 md:flex-row md:py-10">
           <p className="text-center text-sm leading-snug text-white/90 md:text-left md:text-base">
-            These AI models aren't just tools â€” they're digital teammates that
-            learn and adapt continuously. <br />
+            {`These AI models aren't just tools - they're digital teammates that
+            learn and adapt continuously.`} <br />
             Together, they guide your airport toward a safer, smarter future
             with every use.
           </p>

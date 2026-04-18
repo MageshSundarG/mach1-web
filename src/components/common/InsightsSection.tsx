@@ -1,6 +1,7 @@
 import ScrollResetLink from "@/components/common/ScrollResetLink";
 import { blogApi } from "@/lib/api/blog";
 import { useQuery } from "@tanstack/react-query";
+import { ArrowRight } from "lucide-react";
 
 const InsightsSection = () => {
   const postsQuery = useQuery({
@@ -94,9 +95,24 @@ const InsightsSection = () => {
                     <p className="copy-balanced mt-3 line-clamp-3 text-[16px] text-white/70">
                       {post.excerpt}
                     </p>
+                    <ScrollResetLink
+                      to={`/blog/${post.slug}`}
+                      className="elegant-transition mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-white/82 hover:text-[#8CC0FF]"
+                    >
+                      Read More <ArrowRight size={16} />
+                    </ScrollResetLink>
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className="motion-fade-up motion-delay-3 mt-12 flex justify-center">
+              <ScrollResetLink
+                to="/blog"
+                className="elegant-transition inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-6 py-3 text-[15px] font-semibold text-white/82 hover:-translate-y-0.5 hover:bg-white/[0.08] hover:text-white"
+              >
+                View More Insights <ArrowRight size={16} />
+              </ScrollResetLink>
             </div>
           </section>
         </div>
