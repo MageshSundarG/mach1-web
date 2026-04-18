@@ -51,7 +51,7 @@ const BlogPostPage = () => {
                       <span>{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
                       <span>8 min read</span>
                     </div>
-                    <h1 className="mt-6 font-['Georgia'] text-[40px] leading-[1.08] text-[#16202b] md:text-[68px]">
+                    <h1 className="mt-6 text-[40px] leading-[1.08] text-[#16202b] md:text-[68px]">
                       {post.title}
                     </h1>
                     <p className="mx-auto mt-6 max-w-4xl text-[20px] leading-8 text-[#5d6673]">
@@ -92,7 +92,7 @@ const BlogPostPage = () => {
                         <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8c7f69]">
                           Keep Reading
                         </p>
-                        <h2 className="mt-3 font-['Georgia'] text-[30px] text-[#16202b] md:text-[40px]">
+                        <h2 className="mt-3 text-[30px] text-[#16202b] md:text-[40px]">
                           More articles from the journal
                         </h2>
                       </div>
@@ -114,7 +114,7 @@ const BlogPostPage = () => {
                             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8c7f69]">
                               {entry.tags[0] || "Journal"}
                             </p>
-                            <h3 className="mt-3 font-['Georgia'] text-[25px] leading-[1.18] text-[#16202b]">
+                            <h3 className="mt-3 text-[25px] leading-[1.18] text-[#16202b]">
                               {entry.title}
                             </h3>
                             <p className="mt-4 flex-1 text-[15px] leading-7 text-[#5c6571]">

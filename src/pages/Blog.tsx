@@ -55,7 +55,7 @@ const Blog = () => {
                 <span className="inline-flex rounded-full border border-[#d8cfbe] bg-white/80 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#7a6d58]">
                   MACH1 Journal
                 </span>
-                <h1 className="mt-7 font-['Georgia'] text-[44px] leading-[1.06] text-[#16202b] md:text-[70px]">
+                <h1 className="mt-7 text-[24px] leading-[1.06] text-[#16202b] md:text-[25px]">
                   Perspectives on operations, technology, leadership, and how modern teams work.
                 </h1>
                 <p className="mx-auto mt-6 max-w-3xl text-[18px] leading-8 text-[#5d6673]">
@@ -71,7 +71,7 @@ const Blog = () => {
                     <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8c7f69]">
                       Latest Articles
                     </p>
-                    <h2 className="mt-3 font-['Georgia'] text-[30px] text-[#16202b] md:text-[40px]">
+                    <h2 className="mt-3 text-[30px] text-[#16202b] md:text-[40px]">
                       Recent insights from the journal
                     </h2>
                   </div>
@@ -96,7 +96,7 @@ const Blog = () => {
                           <span>{post.tags[0] || "Journal"}</span>
                           <span>{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
                         </div>
-                        <h3 className="mt-4 line-clamp-3 font-['Georgia'] text-[27px] leading-[1.18] text-[#16202b]">
+                        <h3 className="mt-4 line-clamp-3 text-[27px] leading-[1.18] text-[#16202b]">
                           {post.title}
                         </h3>
                         <p className="mt-4 flex-1 line-clamp-4 text-[16px] leading-7 text-[#5c6571]">
