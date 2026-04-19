@@ -87,7 +87,7 @@ export default function PostEditorForm({
       </div>
 
       <label className="space-y-2">
-        <span className="text-sm font-medium text-white/80">Excerpt</span>
+        <span className="text-sm font-medium text-white/80">{`Excerpt ( minimum 10 characters)`} </span>
         <textarea
           value={value.excerpt}
           onChange={(event) => updateField("excerpt", event.target.value)}
