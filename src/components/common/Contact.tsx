@@ -2,6 +2,8 @@ import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import GradientBorderButton from "./GradientBorderButton";
 import { navigateWithScrollTop } from "@/lib/navigateWithScrollTop";
+import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 
 const focusAreas = [
   "AI",
@@ -66,6 +68,7 @@ type TurnstileApi = {
 };
 
 const Contact = ({ gradient = true }: { gradient?: boolean }) => {
+  const calendlyUrl = "https://calendly.com/abby-logan-wavionix/mach1-meeting";
   const location = useLocation();
   const navigate = useNavigate();
   const turnstileSiteKey =
@@ -85,6 +88,7 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const scrollToContactTop = () => {
     contactTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -164,6 +168,24 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
       script.removeEventListener("load", renderWidget);
     };
   }, [isLocalDev, turnstileSiteKey]);
+
+  useEffect(() => {
+    document.body.classList.toggle("mach1-overlay-open", isCalendlyOpen);
+    window.dispatchEvent(
+      new CustomEvent("mach1:overlay-visibility", {
+        detail: { open: isCalendlyOpen },
+      }),
+    );
+
+    return () => {
+      document.body.classList.remove("mach1-overlay-open");
+      window.dispatchEvent(
+        new CustomEvent("mach1:overlay-visibility", {
+          detail: { open: false },
+        }),
+      );
+    };
+  }, [isCalendlyOpen]);
 
   const submitContactRequest = async (token: string) => {
     const response = await fetch("/api/contact", {
@@ -311,6 +333,18 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
                   </span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 max-w-xs">
+              <GradientBorderButton
+                type="button"
+                onClick={() => setIsCalendlyOpen(true)}
+                className="h-[46px] w-full md:w-[14rem]"
+              >
+                <span className="block px-10 py-2 text-[16px] font-regular whitespace-nowrap">
+                  Schedule a Meeting
+                </span>
+              </GradientBorderButton>
             </div>
           </div>
         </div>
@@ -525,6 +559,50 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
           </div>
         </div>
       </div>
+
+      <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>
+        <DialogContent className="h-[100dvh] w-[100vw] max-w-none border-0 bg-transparent p-0 text-white shadow-none sm:h-[min(94vh,980px)] sm:w-[calc(100vw-24px)] sm:max-w-6xl [&>button:last-child]:hidden">
+          <div className="relative h-full">
+            <style>{`
+              .mach1-modal-scroll {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(23,126,255,0.9) rgba(255,255,255,0.08);
+              }
+              .mach1-modal-scroll::-webkit-scrollbar {
+                width: 10px;
+              }
+              .mach1-modal-scroll::-webkit-scrollbar-track {
+                background: rgba(255,255,255,0.07);
+                border-radius: 999px;
+              }
+              .mach1-modal-scroll::-webkit-scrollbar-thumb {
+                background: linear-gradient(180deg, rgba(23,126,255,0.95), rgba(144,198,61,0.85));
+                border-radius: 999px;
+                border: 2px solid rgba(6,19,38,0.92);
+              }
+              .mach1-modal-scroll::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(180deg, rgba(66,153,255,1), rgba(169,220,89,0.95));
+              }
+            `}</style>
+            <DialogClose className="absolute right-3 top-3 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/55 text-white transition hover:bg-black/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-0 sm:-top-1 sm:right-0 md:-top-3 md:-right-3">
+              <X className="h-4 w-4" />
+              <span className="sr-only">Close</span>
+            </DialogClose>
+
+            <div className="mach1-modal-scroll h-full overflow-y-auto pt-14 sm:pt-4">
+              <div className="flex min-h-full items-start justify-center px-0 pb-0 sm:px-4 sm:pb-4">
+                <div className="h-[920px] w-[100vw] shrink-0 overflow-hidden bg-white sm:h-[960px] sm:w-full sm:max-w-[1120px] sm:rounded-[24px]">
+                  <iframe
+                    src={calendlyUrl}
+                    title="Schedule a MACH1 meeting"
+                    className="h-full w-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
