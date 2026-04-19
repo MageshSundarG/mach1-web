@@ -39,7 +39,7 @@ export const onRequestPut: PagesFunction<Env> = async ({ env, request, params })
 
     const payload = postInputSchema.parse(await readJson(request));
     const now = new Date().toISOString();
-    const slug = await ensureUniqueSlug(env, payload.title, payload.slug, id);
+    const slug = await ensureUniqueSlug(env, payload.title, id);
     const status = payload.status as PostStatus;
     const publishedAt =
       status === "published"

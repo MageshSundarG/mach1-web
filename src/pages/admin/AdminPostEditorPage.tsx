@@ -4,14 +4,14 @@ import ScrollResetLink from "@/components/common/ScrollResetLink";
 import PostEditorForm from "@/components/blog/PostEditorForm";
 import { blogApi } from "@/lib/api/blog";
 import { ApiError } from "@/lib/api/client";
+import { toast } from "@/components/ui/sonner";
 import type { AdminPostInput } from "@/lib/blog/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const emptyPost: AdminPostInput = {
   title: "",
-  slug: "",
   excerpt: "",
   content_md: "# Title\n\nWrite your post here.",
   cover_image_url: "",
@@ -24,7 +24,7 @@ export default function AdminPostEditorPage() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const isEditing = Boolean(id);
-  const [editorValue, setEditorValue] = useState<AdminPostInput | null>(null);
+  const [editorValue, setEditorValue] = useState<AdminPostInput>(emptyPost);
   const [uploadFeedback, setUploadFeedback] = useState("");
 
   const meQuery = useQuery({
@@ -47,16 +47,26 @@ export default function AdminPostEditorPage() {
       await queryClient.invalidateQueries({ queryKey: ["published-posts-infinite"] });
       navigate("/admin", { replace: true });
     },
+    onError: (error) => {
+      const message =
+        error instanceof ApiError ? error.message : "Could not save the post. Please review the form and try again.";
+      toast.error(message);
+    },
   });
 
   const uploadMutation = useMutation({
     mutationFn: (file: File) => blogApi.uploadImage(file),
     onSuccess: ({ image }) => {
       setEditorValue((current) => ({
-        ...(current || initialValue),
+        ...current,
         cover_image_url: image.url,
       }));
       setUploadFeedback("Image uploaded successfully. The cover image URL was filled in for you.");
+    },
+    onError: (error) => {
+      const message =
+        error instanceof ApiError ? error.message : "Image upload failed. Please try another file.";
+      toast.error(message);
     },
   });
 
@@ -68,7 +78,6 @@ export default function AdminPostEditorPage() {
     const post = postQuery.data.post;
     return {
       title: post.title,
-      slug: post.slug,
       excerpt: post.excerpt,
       content_md: post.content_md,
       cover_image_url: post.cover_image_url,
@@ -77,7 +86,14 @@ export default function AdminPostEditorPage() {
     };
   }, [isEditing, postQuery.data]);
 
-  const activeValue = editorValue || initialValue;
+  const editorResetKey = isEditing
+    ? `${id || "new"}:${postQuery.data?.post.updated_at || "loading"}`
+    : "new";
+
+  useEffect(() => {
+    setEditorValue(initialValue);
+    setUploadFeedback("");
+  }, [editorResetKey, initialValue]);
 
   if (meQuery.isLoading || (isEditing && postQuery.isLoading)) {
     return <main className="min-h-screen bg-[#020617]" />;
@@ -136,19 +152,19 @@ export default function AdminPostEditorPage() {
 
             <div className="mt-8">
               <PostEditorForm
-                initialValue={activeValue}
+                value={editorValue}
                 saving={saveMutation.isPending}
                 submitLabel={isEditing ? "Save Changes" : "Create Post"}
                 error={saveMutation.error instanceof ApiError ? saveMutation.error.message : ""}
                 uploading={uploadMutation.isPending}
                 uploadError={uploadMutation.error instanceof ApiError ? uploadMutation.error.message : ""}
                 uploadSuccess={uploadFeedback}
+                onChange={setEditorValue}
                 onUploadImage={(file) => {
                   setUploadFeedback("");
                   uploadMutation.mutate(file);
                 }}
                 onSubmit={(payload) => {
-                  setEditorValue(payload);
                   saveMutation.mutate(payload);
                 }}
               />

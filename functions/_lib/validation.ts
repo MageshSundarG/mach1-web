@@ -7,7 +7,6 @@ export const loginSchema = z.object({
 
 export const postInputSchema = z.object({
   title: z.string().trim().min(3).max(180),
-  slug: z.string().trim().max(120).optional().or(z.literal("")),
   excerpt: z.string().trim().min(10).max(400),
   content_md: z.string().trim().min(20).max(100_000),
   cover_image_url: z.string().trim().url().max(2048).or(z.literal("")),

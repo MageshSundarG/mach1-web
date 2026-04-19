@@ -126,17 +126,17 @@ const Airport = () => {
 
         {/* --- Dashboard UI Mockup --- */}
         <main data-aos="zoom-in" className="site-shell">
-          <div className="bg-gradient-to-b from-blue-200/0 to-blue-700/20 rounded-2xl p-4 md:p-8 shadow-inner">
-            <div className="md:hidden">
-              <MobileScreensCarousel />
-            </div>
+          <div className="rounded-2xl bg-gradient-to-b from-blue-200/0 to-blue-700/20 px-2 py-4 shadow-inner sm:px-3 md:p-8">
             <img
               src="/assets/home/session2/main 1.png"
               alt="Airport Dashboard Mockup"
               loading="lazy"
               decoding="async"
-              className="hidden h-auto w-full rounded-lg object-cover md:block"
+              className="h-auto w-full rounded-[24px] object-cover md:rounded-lg"
             />
+            {/* <div className="mt-4 md:hidden">
+              <MobileScreensCarousel />
+            </div> */}
           </div>
         </main>
       </div>

@@ -15,7 +15,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ env, request }) =>
     const user = await requireUser(env, request);
     const payload = postInputSchema.parse(await readJson(request));
     const now = new Date().toISOString();
-    const slug = await ensureUniqueSlug(env, payload.title, payload.slug);
+    const slug = await ensureUniqueSlug(env, payload.title);
     const id = crypto.randomUUID();
     const status = payload.status as PostStatus;
     const publishedAt = status === "published" ? now : null;

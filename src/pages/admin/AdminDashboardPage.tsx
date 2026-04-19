@@ -127,7 +127,6 @@ export default function AdminDashboardPage() {
     mutationFn: (post: AdminPost) =>
       blogApi.updatePost(post.id, {
         title: post.title,
-        slug: post.slug,
         excerpt: post.excerpt,
         content_md: post.content_md,
         cover_image_url: post.cover_image_url,

@@ -32,8 +32,8 @@ const BlogPostPage = () => {
       <Header variant="light" />
       <main data-header-tone="light" className="bg-white pb-24 pt-32 text-[#1c2430]">
         <article className="site-shell">
-          <div className="border-x border-[#d8cfbe] bg-white">
-            <div className="border-b border-[#d8cfbe] px-6 py-6 md:px-10">
+          <div className="bg-white">
+            <div className="px-6 py-6 md:px-10">
               <ScrollResetLink
                 to="/blog"
                 className="inline-flex items-center gap-2 rounded-full border border-[#d8cfbe] bg-white px-5 py-2.5 text-sm text-[#4f5966] shadow-[0_10px_30px_rgba(35,44,60,0.05)]"
@@ -44,7 +44,7 @@ const BlogPostPage = () => {
 
             {post ? (
               <>
-                <div className="border-b border-[#d8cfbe] px-6 py-10 md:px-10 md:py-14">
+                <div className="px-6 py-10 md:px-10 md:py-14">
                   <div className="text-center">
                     <div className="flex flex-wrap items-center justify-center gap-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#8c7f69]">
                       <span>{post.tags[0] || "MACH1 Journal"}</span>
@@ -65,8 +65,8 @@ const BlogPostPage = () => {
                   </div>
                 </div>
 
-                <div className="border-b border-[#d8cfbe] px-6 py-6 md:px-10 md:py-8">
-                  <div className="overflow-hidden border border-[#ddd3c2] bg-white p-3 shadow-[0_25px_70px_rgba(35,44,60,0.08)] md:p-4">
+                <div className="px-6 py-6 md:px-10 md:py-8">
+                  <div className="overflow-hidden rounded-[28px] bg-white p-3 shadow-[0_25px_70px_rgba(35,44,60,0.08)] md:p-4">
                     <img
                       src={post.cover_image_url || "/assets/home/session7/1.png"}
                       alt={post.title}
@@ -75,8 +75,8 @@ const BlogPostPage = () => {
                   </div>
                 </div>
 
-                <div className="border-b border-[#d8cfbe] px-6 py-8 md:px-10 md:py-10">
-                  <div className="mb-8 border border-[#ddd3c2] bg-white px-6 py-5 text-[15px] leading-7 text-[#57616e] shadow-[0_14px_40px_rgba(35,44,60,0.04)] md:text-[16px]">
+                <div className="px-6 py-8 md:px-10 md:py-10">
+                  <div className="mb-8 rounded-[24px] bg-[#fbfaf7] px-6 py-5 text-[15px] leading-7 text-[#57616e] shadow-[0_14px_40px_rgba(35,44,60,0.04)] md:text-[16px]">
                     <p>
                       This article is part of the MACH1 Journal, a publication focused on how
                       airport operations teams use safety systems, workflow design, and applied AI
@@ -100,17 +100,17 @@ const BlogPostPage = () => {
                       </div>
                     </div>
 
-                    <div className="grid gap-0 border border-[#ddd3c2] bg-white md:grid-cols-3">
+                    <div className="grid gap-6 bg-white md:grid-cols-3">
                       {relatedPosts.map((entry) => (
                         <ScrollResetLink
                           key={entry.slug}
                           to={`/blog/${entry.slug}`}
-                          className="group flex min-h-[28rem] flex-col border-b border-[#ddd3c2] md:border-b-0 md:border-r md:last:border-r-0"
+                          className="group flex min-h-[28rem] flex-col overflow-hidden rounded-[28px] bg-[#fbfaf7] shadow-[0_20px_60px_rgba(35,44,60,0.06)]"
                         >
                           <img
                             src={entry.cover_image_url || "/assets/home/session7/2.png"}
                             alt={entry.title}
-                            className="h-48 w-full border-b border-[#ddd3c2] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                           />
                           <div className="flex flex-1 flex-col p-6">
                             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8c7f69]">
@@ -134,7 +134,7 @@ const BlogPostPage = () => {
               </>
             ) : (
               <div className="px-6 py-10 md:px-10">
-                <div className="border border-[#ddd3c2] bg-white p-8 text-[#5d6673] shadow-[0_20px_60px_rgba(35,44,60,0.06)]">
+                <div className="rounded-[28px] bg-[#fbfaf7] p-8 text-[#5d6673] shadow-[0_20px_60px_rgba(35,44,60,0.06)]">
                   {postQuery.isLoading ? "Loading article..." : "Article not found."}
                 </div>
               </div>

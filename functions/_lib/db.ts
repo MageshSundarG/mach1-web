@@ -142,10 +142,10 @@ export async function getPostById(env: Env, id: string) {
   return row ? mapAdminPost(row) : null;
 }
 
-export async function ensureUniqueSlug(env: Env, title: string, requestedSlug?: string, currentPostId?: string) {
-  const baseSlug = slugify(requestedSlug?.trim() || title);
+export async function ensureUniqueSlug(env: Env, title: string, currentPostId?: string) {
+  const baseSlug = slugify(title);
   if (!baseSlug) {
-    throw new HttpError(400, "invalid_slug", "A valid title or slug is required.");
+    throw new HttpError(400, "invalid_slug", "A valid title is required to generate the slug.");
   }
 
   let slug = baseSlug;

@@ -3,7 +3,7 @@ import MarkdownPreview from "./MarkdownPreview";
 import type { AdminPostInput, PostStatus } from "@/lib/blog/types";
 
 interface PostEditorFormProps {
-  initialValue: AdminPostInput;
+  value: AdminPostInput;
   submitLabel: string;
   saving: boolean;
   error?: string;
@@ -11,11 +11,24 @@ interface PostEditorFormProps {
   uploadError?: string;
   uploadSuccess?: string;
   onUploadImage?: (file: File) => void;
+  onChange: (value: AdminPostInput) => void;
   onSubmit: (value: AdminPostInput) => void;
 }
 
+function slugifyPreview(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-")
+    .slice(0, 96);
+}
+
 export default function PostEditorForm({
-  initialValue,
+  value,
   submitLabel,
   saving,
   error,
@@ -23,30 +36,30 @@ export default function PostEditorForm({
   uploadError = "",
   uploadSuccess = "",
   onUploadImage,
+  onChange,
   onSubmit,
 }: PostEditorFormProps) {
-  const [form, setForm] = useState(initialValue);
   const [preview, setPreview] = useState(false);
   const [imageInputMode, setImageInputMode] = useState<"url" | "upload">(
-    initialValue.cover_image_url ? "url" : "upload",
+    value.cover_image_url ? "url" : "upload",
   );
 
   useEffect(() => {
-    setForm(initialValue);
-    setImageInputMode(initialValue.cover_image_url ? "url" : "upload");
-  }, [initialValue]);
+    setImageInputMode(value.cover_image_url ? "url" : "upload");
+  }, [value.cover_image_url]);
 
-  const updateField = <K extends keyof AdminPostInput>(key: K, value: AdminPostInput[K]) => {
-    setForm((current) => ({ ...current, [key]: value }));
+  const updateField = <K extends keyof AdminPostInput>(key: K, nextValue: AdminPostInput[K]) => {
+    onChange({ ...value, [key]: nextValue });
   };
 
-  const status = form.status as PostStatus;
+  const status = value.status as PostStatus;
+  const slugPreview = slugifyPreview(value.title);
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onSubmit(form);
+        onSubmit(value);
       }}
       className="space-y-6"
     >
@@ -54,7 +67,7 @@ export default function PostEditorForm({
         <label className="space-y-2">
           <span className="text-sm font-medium text-white/80">Title</span>
           <input
-            value={form.title}
+            value={value.title}
             onChange={(event) => updateField("title", event.target.value)}
             className="form-field"
             placeholder="Post title"
@@ -62,21 +75,21 @@ export default function PostEditorForm({
           />
         </label>
 
-        <label className="space-y-2">
+        <div className="space-y-2">
           <span className="text-sm font-medium text-white/80">Slug</span>
-          <input
-            value={form.slug || ""}
-            onChange={(event) => updateField("slug", event.target.value)}
-            className="form-field"
-            placeholder="leave blank to auto-generate"
-          />
-        </label>
+          <div className="form-field flex min-h-[48px] items-center text-white/70">
+            {slugPreview ? `/${slugPreview}` : "Generated automatically from the title"}
+          </div>
+          <p className="text-xs text-white/48">
+            The slug is created automatically and a number is added if a similar title already exists.
+          </p>
+        </div>
       </div>
 
       <label className="space-y-2">
         <span className="text-sm font-medium text-white/80">Excerpt</span>
         <textarea
-          value={form.excerpt}
+          value={value.excerpt}
           onChange={(event) => updateField("excerpt", event.target.value)}
           className="form-field min-h-28"
           placeholder="Short summary for listings and SEO."
@@ -110,7 +123,7 @@ export default function PostEditorForm({
             <label className="space-y-2">
               <span className="text-sm font-medium text-white/62">Paste image URL</span>
               <input
-                value={form.cover_image_url}
+                value={value.cover_image_url}
                 onChange={(event) => updateField("cover_image_url", event.target.value)}
                 className="form-field"
                 placeholder="https://example.com/image.jpg"
@@ -140,14 +153,14 @@ export default function PostEditorForm({
           {uploadError ? <p className="text-sm text-red-300">{uploadError}</p> : null}
           {uploadSuccess ? <p className="text-sm text-emerald-300">{uploadSuccess}</p> : null}
           {uploading ? <p className="text-sm text-white/62">Uploading image...</p> : null}
-          {form.cover_image_url ? (
+          {value.cover_image_url ? (
             <div className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] p-3">
               <img
-                src={form.cover_image_url}
+                src={value.cover_image_url}
                 alt="Cover preview"
                 className="h-52 w-full rounded-[18px] object-cover"
               />
-              <p className="mt-3 break-all text-xs text-white/48">{form.cover_image_url}</p>
+              <p className="mt-3 break-all text-xs text-white/48">{value.cover_image_url}</p>
             </div>
           ) : null}
         </div>
@@ -155,7 +168,7 @@ export default function PostEditorForm({
         <label className="space-y-2">
           <span className="text-sm font-medium text-white/80">Tags</span>
           <input
-            value={form.tags.join(", ")}
+            value={value.tags.join(", ")}
             onChange={(event) =>
               updateField(
                 "tags",
@@ -196,10 +209,10 @@ export default function PostEditorForm({
         </div>
 
         {preview ? (
-          <MarkdownPreview markdown={form.content_md} />
+          <MarkdownPreview markdown={value.content_md} />
         ) : (
           <textarea
-            value={form.content_md}
+            value={value.content_md}
             onChange={(event) => updateField("content_md", event.target.value)}
             className="form-field min-h-[26rem] font-mono text-[14px]"
             placeholder="Write markdown here..."

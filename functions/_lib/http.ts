@@ -1,3 +1,4 @@
+import { ZodError } from "zod";
 import type { ApiFailure, ApiSuccess } from "./types";
 
 export class HttpError extends Error {
@@ -40,6 +41,22 @@ export async function withErrorHandling(handler: () => Promise<Response> | Respo
   } catch (error) {
     if (error instanceof HttpError) {
       return jsonError(error.status, error.code, error.message, error.details);
+    }
+
+    if (error instanceof ZodError) {
+      const issueMessages = error.issues.map((issue) => {
+        const path = issue.path.length ? `${issue.path.join(".")}: ` : "";
+        return `${path}${issue.message}`;
+      });
+
+      return jsonError(
+        400,
+        "validation_error",
+        issueMessages.length
+          ? `Please correct the following: ${issueMessages.join(" ")}`
+          : "Please correct the highlighted fields and try again.",
+        error.issues,
+      );
     }
 
     console.error(error);

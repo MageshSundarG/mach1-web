@@ -49,8 +49,8 @@ const Blog = () => {
       <Header variant="light" />
       <main data-header-tone="light" className="bg-white pb-24 pt-32 text-[#1c2430]">
         <section className="site-shell">
-          <div className="border-x border-[#d8cfbe] bg-white">
-            <div className="border-b border-[#d8cfbe] px-6 py-12 md:px-10 md:py-16">
+          <div className="bg-white">
+            <div className="px-6 py-12 md:px-10 md:py-16">
               <div className="text-center">
                 <span className="inline-flex rounded-full border border-[#d8cfbe] bg-white px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#7a6d58]">
                   MACH1 Journal
@@ -78,14 +78,14 @@ const Blog = () => {
                   </div>
                 </div>
 
-                <div className="grid gap-0 border border-[#ddd3c2] bg-white sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-6 bg-white sm:grid-cols-2 xl:grid-cols-3">
                   {posts.map((post) => (
                     <ScrollResetLink
                       key={post.slug}
                       to={`/blog/${post.slug}`}
-                      className="group flex min-h-[31rem] flex-col border-b border-[#ddd3c2] sm:border-r xl:[&:nth-child(3n)]:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0 xl:[&:nth-last-child(-n+3)]:border-b-0"
+                      className="group flex min-h-[31rem] flex-col overflow-hidden rounded-[28px] bg-[#fbfaf7] shadow-[0_20px_60px_rgba(35,44,60,0.06)]"
                     >
-                      <div className="overflow-hidden border-b border-[#ddd3c2]">
+                      <div className="overflow-hidden">
                         <img
                           src={post.cover_image_url || "/assets/home/session7/2.png"}
                           alt={post.title}
@@ -113,7 +113,7 @@ const Blog = () => {
               </section>
             ) : (
               <div className="px-6 py-12 md:px-10">
-                <div className="border border-[#ddd3c2] bg-white p-8 text-[#5d6673] shadow-[0_20px_60px_rgba(35,44,60,0.06)]">
+                <div className="rounded-[28px] bg-[#fbfaf7] p-8 text-[#5d6673] shadow-[0_20px_60px_rgba(35,44,60,0.06)]">
                   {postsQuery.isLoading ? "Loading posts..." : "No published posts yet."}
                 </div>
               </div>
@@ -123,7 +123,7 @@ const Blog = () => {
 
             {postsQuery.isFetchingNextPage ? (
               <div className="px-6 pb-10 md:px-10">
-                <div className="border border-[#ddd3c2] bg-white p-6 text-center text-[#5d6673] shadow-[0_18px_50px_rgba(35,44,60,0.06)]">
+                <div className="rounded-[24px] bg-[#fbfaf7] p-6 text-center text-[#5d6673] shadow-[0_18px_50px_rgba(35,44,60,0.06)]">
                   Loading more posts...
                 </div>
               </div>
@@ -131,7 +131,7 @@ const Blog = () => {
 
             {!postsQuery.hasNextPage && posts.length > 0 ? (
               <div className="px-6 pb-10 md:px-10">
-                <div className="border border-[#ddd3c2] bg-white p-6 text-center text-[#6c727d]">
+                <div className="rounded-[24px] bg-[#fbfaf7] p-6 text-center text-[#6c727d] shadow-[0_18px_50px_rgba(35,44,60,0.04)]">
                   You've reached the end of the journal.
                 </div>
               </div>

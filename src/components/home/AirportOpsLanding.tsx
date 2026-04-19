@@ -67,22 +67,22 @@ const AirportOpsLanding = () => {
             />
             <div
               data-aos="zoom-in-up"
-              className="rounded-2xl border border-blue-100 border-opacity-10 bg-gradient-to-b from-blue-200/0 to-blue-700/20 p-4 shadow-inner md:p-8"
+              className="rounded-2xl border border-blue-100 border-opacity-10 bg-gradient-to-b from-blue-200/0 to-blue-700/20 px-2 py-4 shadow-inner sm:px-3 md:p-8"
             >
-              <div className="md:hidden">
-                <MobileScreensCarousel />
-              </div>
-              <img
+              {/* <img
                 src="/assets/home/session2/main 1.png"
                 alt="Airport Dashboard Mockup"
                 loading="lazy"
                 decoding="async"
-                className="z-10 hidden h-auto w-full rounded-lg object-cover md:block"
-              />
+                className="z-10 h-auto w-full rounded-[24px] object-cover md:rounded-lg"
+              /> */}
+              <div className="mt-4 h-[40rem] sm:h-[42rem]">
+                <MobileScreensCarousel />
+              </div>
             </div>
           </div>
 
-          <div className="lg:pl-20">
+          <div className="lg:pl-20 lg:sticky lg:top-24">
             <section className="group">
               <h3 className="text-[24px] font-regular transition-colors group-hover:text-blue-400 md:text-[36px]">
                 Mobile-First Application

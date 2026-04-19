@@ -104,17 +104,20 @@ const MobileScreensCarousel = () => {
   }, [clearAutoplay, clearResumeTimer, emblaApi, pauseAndResumeAutoplay, startAutoplay]);
 
   return (
-    <div className="relative mx-auto w-full max-w-[24rem] overflow-hidden rounded-[24px] sm:max-w-[26rem]">
-      <div ref={emblaRef} className="overflow-hidden rounded-[24px]">
-        <div className="flex">
+    <div className="relative mx-auto w-full max-w-[44rem] sm:max-w-[46rem] h-full overflow-hidden rounded-[24px]">
+      <div ref={emblaRef} className="overflow-hidden rounded-[24px] h-full">
+        <div className="flex h-full">
           {mobileScreens.map((screen, index) => (
-            <div key={screen} className="min-w-0 shrink-0 grow-0 basis-full">
+            <div
+              key={screen}
+              className="min-w-0 shrink-0 grow-0 basis-full h-full flex items-center justify-center"
+            >
               <img
                 src={screen}
                 alt={`Airport mobile screen ${index + 1}`}
                 loading="lazy"
                 decoding="async"
-                className="block w-full rounded-[24px] object-cover"
+                className="max-h-full max-w-full object-contain rounded-[24px]"
               />
             </div>
           ))}
@@ -149,9 +152,8 @@ const MobileScreensCarousel = () => {
               emblaApi?.scrollTo(index);
               pauseAndResumeAutoplay();
             }}
-            className={`pointer-events-auto h-1.5 rounded-full transition-all duration-300 ${
-              index === activeIndex ? "w-5 bg-white" : "w-1.5 bg-white/45"
-            }`}
+            className={`pointer-events-auto h-1.5 rounded-full transition-all duration-300 ${index === activeIndex ? "w-5 bg-white" : "w-1.5 bg-white/45"
+              }`}
             aria-label={`Go to mobile screen ${index + 1}`}
           />
         ))}

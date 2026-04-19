@@ -36,7 +36,6 @@ export interface AdminUser {
 
 export interface AdminPostInput {
   title: string;
-  slug?: string;
   excerpt: string;
   content_md: string;
   cover_image_url: string;
