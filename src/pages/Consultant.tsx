@@ -191,9 +191,12 @@ function Consultant() {
                 <p className="copy-balanced mt-4 max-w-[18rem] text-[13px] text-white/68">
                   {stat.description}
                 </p>
-                <div className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-[#2E7DFF]/40 bg-[#0B2F66]/70 text-[#7EB4FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-                  <span className="text-lg">✦</span>
-                </div>
+                <img
+                    data-aos="zoom-in"
+                    src="/assets/operation.svg"
+                    alt="icon"
+                    className={`elegant-transition h-[73px] w-[61px] object-contain group-hover:-translate-y-1 group-hover:scale-[1.08] mt-4 ml-auto`}
+                  />
               </div>
             ))}
           </div>
@@ -353,24 +356,17 @@ function Consultant() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(126,180,255,0.14),transparent_28%)]" />
 
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-              <div className="relative flex min-h-[16rem] items-center justify-center">
-                <div className="absolute h-48 w-48 rounded-full border border-[#2E7DFF]/20 bg-[#0A2347]/70" />
-                <div className="absolute h-40 w-40 rounded-full border border-[#2E7DFF]/20" />
-                <div className="absolute h-56 w-56 rounded-full border border-[#2E7DFF]/12" />
-                <div className="relative flex flex-col items-center gap-1">
-                  {Array.from({ length: 7 }).map((_, index) => (
-                    <div
-                      key={index}
-                      className="w-20 rounded-[10px] border border-[#5B92FF]/24 bg-[linear-gradient(180deg,rgba(40,113,255,0.42),rgba(22,59,124,0.9))] shadow-[0_12px_22px_rgba(23,99,250,0.16)]"
-                      style={{
-                        height: `${18 + index * 5}px`,
-                        transform: `translateY(${-index * 5}px) scale(${1 - index * 0.02})`,
-                        opacity: 1 - index * 0.06,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
+            <img
+              src="/assets/conversation.png"
+              alt=""
+              className="h-full w-full object-cover"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+              }}
+            />
 
               <div className="relative z-10 max-w-[32rem]">
                 <h2 className="title-balanced text-[34px] font-light text-white md:text-[52px]">

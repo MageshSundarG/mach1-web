@@ -528,36 +528,39 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
           </div>
         )}
 
-        <div className="site-shell relative pb-20 sm:pb-40">
-          <div className="motion-fade-up motion-delay-2 relative overflow-hidden rounded-[28px] border border-white/8 bg-gradient-to-tr from-[#0B3A7E] to-[#020B18] px-6 py-10 md:px-12 md:py-16">
-            <div className="pointer-events-none absolute right-20 top-1/2 hidden -translate-y-1/2 lg:block">
-              <img
-                src="/assets/home/session8/4.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-                className="motion-float"
-              />
-            </div>
+      <div className="site-shell relative pb-20 sm:pb-40">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/8 bg-gradient-to-tr from-[#0B3A7E] to-[#020B18] px-6 py-10 md:px-12 md:py-16">
+          <div className="absolute inset-y-0 right-0 hidden w-[50%] lg:block">
+            <img
+              src="/assets/home/session8/4.png"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
 
-            <div className="relative z-10 max-w-[34rem]">
-              <h2 className="title-balanced text-[34px] font-normal text-white md:text-[52px]">
-                Make your operations better than ever!
-              </h2>
-              <p className="copy-balanced mt-5 text-[17px] text-white lg:text-[19px]">
-                {`Let's build the future of airport ops together`}
-              </p>
-              <div className="mt-8 max-w-xs">
-                <button
-                  className="premium-button-secondary elegant-transition w-full rounded-full px-6 py-4 text-[16px] font-semibold text-black lg:text-[18px]"
-                  onClick={scrollToContactTop}
-                >
-                  Book a Demo
-                </button>
-              </div>
+            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#072d68] via-[#072d68]/80 to-transparent" />
+          </div>
+          <div className="relative z-10 max-w-[34rem]">
+            <h2 className="title-balanced text-[34px] font-normal text-white md:text-[52px]">
+              Make your operations better than ever!
+            </h2>
+
+            <p className="copy-balanced mt-5 text-[17px] text-white lg:text-[19px]">
+              Let's build the future of airport ops together
+            </p>
+
+            <div className="mt-8 max-w-xs">
+              <button
+                className="premium-button-secondary elegant-transition w-full rounded-full px-6 py-4 text-[16px] font-semibold text-black lg:text-[18px]"
+                onClick={scrollToContactTop}
+              >
+                Book a Demo
+              </button>
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>
