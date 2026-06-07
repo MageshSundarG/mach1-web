@@ -230,7 +230,7 @@ export default function FloatingVideoWidget() {
   }, []);
 
   const VIDEO_SRC = "https://ik.imagekit.io/5l25qpaqj/vid.mp4";
-
+  const FULL_VIDEO_SRC = "https://ik.imagekit.io/5l25qpaqj/5%20Mins%20Executive%20Version.mp4";
   const formatTime = (s) => {
     if (!s || isNaN(s)) return "0:00";
     const m = Math.floor(s / 60);
@@ -363,7 +363,7 @@ export default function FloatingVideoWidget() {
             >
               <video
                 ref={videoRef}
-                src={VIDEO_SRC}
+                src={isFullscreen ? FULL_VIDEO_SRC : VIDEO_SRC}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -675,7 +675,7 @@ export default function FloatingVideoWidget() {
             >
               {/* <style>{`@keyframes bubblePulse { 0%,100%{box-shadow:0 8px 32px rgba(120,80,255,0.4),0 0 0 2px rgba(167,139,250,0.3);} 50%{box-shadow:0 8px 44px rgba(120,80,255,0.65),0 0 0 2px rgba(167,139,250,0.5);} }`}</style> */}
               <video
-                src={VIDEO_SRC}
+                src={FULL_VIDEO_SRC}
                 muted
                 autoPlay
                 loop
