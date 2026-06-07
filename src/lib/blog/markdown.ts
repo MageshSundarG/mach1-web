@@ -10,6 +10,8 @@ function escapeHtml(value: string) {
 function renderInline(value: string) {
   let text = escapeHtml(value);
   text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
+  text = text.replace(/!\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/g, '<img src="$2" alt="$1" loading="lazy" />');
+  text = text.replace(/\+\+([^+]+)\+\+/g, "<u>$1</u>");
   text = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   text = text.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
@@ -20,7 +22,8 @@ export function renderMarkdownToHtml(markdown: string) {
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const html: string[] = [];
   let paragraph: string[] = [];
-  let listItems: string[] = [];
+  let unorderedListItems: string[] = [];
+  let orderedListItems: string[] = [];
   let inCodeBlock = false;
   let codeLines: string[] = [];
 
@@ -32,9 +35,14 @@ export function renderMarkdownToHtml(markdown: string) {
   };
 
   const flushList = () => {
-    if (listItems.length) {
-      html.push(`<ul>${listItems.map((item) => `<li>${renderInline(item)}</li>`).join("")}</ul>`);
-      listItems = [];
+    if (unorderedListItems.length) {
+      html.push(`<ul>${unorderedListItems.map((item) => `<li>${renderInline(item)}</li>`).join("")}</ul>`);
+      unorderedListItems = [];
+    }
+
+    if (orderedListItems.length) {
+      html.push(`<ol>${orderedListItems.map((item) => `<li>${renderInline(item)}</li>`).join("")}</ol>`);
+      orderedListItems = [];
     }
   };
 
@@ -71,7 +79,27 @@ export function renderMarkdownToHtml(markdown: string) {
 
     if (trimmed.startsWith("- ")) {
       flushParagraph();
-      listItems.push(trimmed.slice(2));
+      if (orderedListItems.length) {
+        flushList();
+      }
+      unorderedListItems.push(trimmed.slice(2));
+      return;
+    }
+
+    const orderedMatch = trimmed.match(/^\d+\.\s+(.+)$/);
+    if (orderedMatch) {
+      flushParagraph();
+      if (unorderedListItems.length) {
+        flushList();
+      }
+      orderedListItems.push(orderedMatch[1]);
+      return;
+    }
+
+    if (trimmed.startsWith("> ")) {
+      flushParagraph();
+      flushList();
+      html.push(`<blockquote>${renderInline(trimmed.slice(2))}</blockquote>`);
       return;
     }
 

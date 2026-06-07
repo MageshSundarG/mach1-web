@@ -193,7 +193,7 @@ function Consultant() {
                 </p>
                 <img
                     data-aos="zoom-in"
-                    src="/assets/operation.svg"
+                    src="/assets/operation-1.svg"
                     alt="icon"
                     className={`elegant-transition h-[73px] w-[61px] object-contain group-hover:-translate-y-1 group-hover:scale-[1.08] mt-4 ml-auto`}
                   />
@@ -357,7 +357,7 @@ function Consultant() {
 
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <img
-              src="/assets/conversation.png"
+              src="/assets/conversation-1.png"
               alt=""
               className="h-full w-full object-cover"
               style={{

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MarkdownPreview from "./MarkdownPreview";
+import RichTextEditor from "./RichTextEditor";
 import type { AdminPostInput, PostStatus } from "@/lib/blog/types";
 
 interface PostEditorFormProps {
@@ -198,25 +199,22 @@ export default function PostEditorForm({
 
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-white/80">Markdown Content</span>
+          <span className="text-sm font-medium text-white/80">Blog Content</span>
           <button
             type="button"
             onClick={() => setPreview((current) => !current)}
             className="rounded-full border border-white/14 bg-white/[0.04] px-4 py-2 text-sm text-white/78"
           >
-            {preview ? "Edit Markdown" : "Preview"}
+            {preview ? "Edit Post" : "Preview"}
           </button>
         </div>
 
         {preview ? (
           <MarkdownPreview markdown={value.content_md} />
         ) : (
-          <textarea
+          <RichTextEditor
             value={value.content_md}
-            onChange={(event) => updateField("content_md", event.target.value)}
-            className="form-field min-h-[26rem] font-mono text-[14px]"
-            placeholder="Write markdown here..."
-            required
+            onChange={(nextValue) => updateField("content_md", nextValue)}
           />
         )}
       </div>

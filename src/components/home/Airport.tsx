@@ -80,7 +80,7 @@ const Airport = () => {
               <div className="p-2 rounded-lg text-blue-600">
                 {/* <BarChart3 size={24} /> */}
                 <img
-                  src="/assets/home/session2/1.png"
+                  src="/assets/home/session2/1-1.png"
                   data-aos="zoom-in"
                   alt="Reduce manual reporting by up to 70%"
                   loading="lazy"
@@ -128,7 +128,7 @@ const Airport = () => {
         <main data-aos="zoom-in" className="site-shell">
           <div className="rounded-2xl bg-gradient-to-b from-blue-200/0 to-blue-700/20 px-2 py-4 shadow-inner sm:px-3 md:p-8">
             <img
-              src="/assets/home/session2/main 1.png"
+              src="/assets/home/session2/main 1-1.png"
               alt="Airport Dashboard Mockup"
               loading="lazy"
               decoding="async"

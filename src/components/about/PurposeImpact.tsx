@@ -63,7 +63,7 @@ const PurposeImpact = () => {
               className="border border-blue-100 border-opacity-10 max-w-[800px] max-h-[800px] bg-gradient-to-b from-blue-200/0 to-blue-700/20 rounded-2xl p-4 md:p-8 shadow-inner"
             >
               <img
-                src="/assets/home/session5/main 2.png"
+                src="/assets/home/session5/main 2-1.png"
                 alt="MACH1 Airport Operations Mockup"
                 className="w-full h-auto z-10 object-cover rounded-lg"
               />

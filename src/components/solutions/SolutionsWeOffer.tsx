@@ -97,31 +97,31 @@ export default function SolutionsWeOffer() {
       title: "Security",
       description:
         "Manage security operations, access control, and compliance workflows in one unified system. From threat risk assessments (TRA), permits, and blacklist tracking to lost & found and curbside assistance, ensure full visibility, traceability, and regulatory alignment across airport security operations. (Under Development)",
-      icon: "/assets/solutions/session1/security-icon.svg",
+      icon: "/assets/solutions/session1/security-icon-1.svg",
     },
     {
       title: "AVOP",
       description:
         "Digitize airside permits, testing, and renewals with structured workflows aligned to regulatory requirements. Track certifications, manage expiries, and ensure only authorized personnel operate airside with full audit traceability. (Beta Enabled)",
-      icon: "/assets/solutions/session1/avop-icon.svg",
+      icon: "/assets/solutions/session1/avop-icon-1.svg",
     },
     {
       title: "Quality Assessment",
       description:
         "Streamline audits, inspections, and compliance checks with structured workflows and automated tracking. Link findings to corrective actions, monitor progress, and ensure continuous compliance with full traceability and audit readiness. (Beta Enabled)",
-      icon: "/assets/solutions/session1/quality-assessment-icon.svg",
+      icon: "/assets/solutions/session1/quality-assessment-icon-1.svg",
     },
     {
       title: "Training",
       description:
         "Manage training programs, budgets, certifications, and expiry tracking in one system. Monitor team readiness, ensure compliance, and maintain full visibility across departments. (Beta Enabled)",
-      icon: "/assets/solutions/session1/training-icon.svg",
+      icon: "/assets/solutions/session1/training-icon-1.svg",
     },
     {
       title: "LMS & Global Training Hub",
       description:
         "Create courses, issue certificates, and manage training from one aviation-focused platform. Share training and access a global database of aviation courses, track completions, and deliver structured learning across departments and airport communities. (Beta Enabled)",
-      icon: "/assets/solutions/session1/lms-training-hub-icon.svg",
+      icon: "/assets/solutions/session1/lms-training-hub-icon-1.svg",
     },
   ];
 

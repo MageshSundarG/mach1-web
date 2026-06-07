@@ -532,7 +532,7 @@ const Contact = ({ gradient = true }: { gradient?: boolean }) => {
         <div className="relative overflow-hidden rounded-[28px] border border-white/8 bg-gradient-to-tr from-[#0B3A7E] to-[#020B18] px-6 py-10 md:px-12 md:py-16">
           <div className="absolute inset-y-0 right-0 hidden w-[50%] lg:block">
             <img
-              src="/assets/home/session8/4.png"
+              src="/assets/home/session8/4-1.png"
               alt=""
               loading="lazy"
               decoding="async"

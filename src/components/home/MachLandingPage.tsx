@@ -83,7 +83,7 @@ const MachLandingPage = () => {
                   <div className="pointer-events-none absolute inset-x-[18%] top-1/2 h-10 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
 
                   <img
-                    src="/assets/home/session1/supported-by.svg"
+                    src="/assets/home/session1/supported-by-1.svg"
                     alt="Supported by NVIDIA, AWS Activate, and Google Cloud"
                     className="relative z-10 mx-auto w-full max-w-[760px] object-contain md:max-w-[820px]"
                   />

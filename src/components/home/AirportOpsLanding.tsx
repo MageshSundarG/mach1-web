@@ -70,7 +70,7 @@ const AirportOpsLanding = () => {
               className="rounded-2xl border border-blue-100 border-opacity-10 bg-gradient-to-b from-blue-200/0 to-blue-700/20 px-2 py-4 shadow-inner sm:px-3 md:p-8"
             >
               {/* <img
-                src="/assets/home/session2/main 1.png"
+                src="/assets/home/session2/main 1-1.png"
                 alt="Airport Dashboard Mockup"
                 loading="lazy"
                 decoding="async"
