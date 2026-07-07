@@ -21,6 +21,14 @@ import AdminPostEditorPage from "./pages/admin/AdminPostEditorPage";
 import { scrollToPageTop } from "@/lib/scrollToPageTop";
 
 const queryClient = new QueryClient();
+const GA_MEASUREMENT_ID = "G-4YPRV8EDDV";
+
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -156,6 +164,21 @@ const RouteEffects = () => {
   return null;
 };
 
+const GoogleAnalyticsPageViews = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.gtag?.("event", "page_view", {
+      page_path: `${location.pathname}${location.search}${location.hash}`,
+      page_location: window.location.href,
+      page_title: document.title,
+      send_to: GA_MEASUREMENT_ID,
+    });
+  }, [location.pathname, location.search, location.hash]);
+
+  return null;
+};
+
 const App = () => {
 
   return (
@@ -166,6 +189,7 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTop />
         <RouteEffects />
+        <GoogleAnalyticsPageViews />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/packages" element={<Packages />} />
